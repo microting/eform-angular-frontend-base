@@ -1,0 +1,45 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31402.337
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microting.EformAngularFrontendBase", "Microting.EformAngularFrontendBase\Microting.EformAngularFrontendBase.csproj", "{BEEA9A26-5BEB-4AA5-942F-7F31FC490779}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{CB20F37C-9960-4CA1-B4BF-0D748310CAE3}"
+	ProjectSection(SolutionItems) = preProject
+		.\EformAngularFrontendBase.Test\CanaryInAColeMine.cs = .\EformAngularFrontendBase.Test\CanaryInAColeMine.cs
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DBMigrator", "DBMigrator\DBMigrator.csproj", "{9A9F8759-3E11-4DE1-A93C-2A4B5FE07243}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microting.EformAngularFrontendBase.Tests", "Microting.EformAngularFrontendBase.Tests\Microting.EformAngularFrontendBase.Tests.csproj", "{D4B7EAB4-9C2B-4D7E-B859-B589DAC8912B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BEEA9A26-5BEB-4AA5-942F-7F31FC490779}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEEA9A26-5BEB-4AA5-942F-7F31FC490779}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEEA9A26-5BEB-4AA5-942F-7F31FC490779}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEEA9A26-5BEB-4AA5-942F-7F31FC490779}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A9F8759-3E11-4DE1-A93C-2A4B5FE07243}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A9F8759-3E11-4DE1-A93C-2A4B5FE07243}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A9F8759-3E11-4DE1-A93C-2A4B5FE07243}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A9F8759-3E11-4DE1-A93C-2A4B5FE07243}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4B7EAB4-9C2B-4D7E-B859-B589DAC8912B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4B7EAB4-9C2B-4D7E-B859-B589DAC8912B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4B7EAB4-9C2B-4D7E-B859-B589DAC8912B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4B7EAB4-9C2B-4D7E-B859-B589DAC8912B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D4B7EAB4-9C2B-4D7E-B859-B589DAC8912B} = {CB20F37C-9960-4CA1-B4BF-0D748310CAE3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A1E32718-7005-443B-B520-1DBBDB1478A5}
+	EndGlobalSection
+EndGlobal
