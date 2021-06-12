@@ -44,7 +44,7 @@ jobs:
     - name: Pack
       run: dotnet pack Microting.EformAngularFrontendBase.sln -c Release -o ./artifacts -p:PackageVersion=${{ steps.get_version.outputs.VERSION }}
     - name: Push generated package to GitHub registry
-      run: dotnet nuget push /home/runner/work/eform-items-planning-base/eform-items-planning-base/artifacts/Microting.EformAngularFrontendBase.${{ steps.get_version.outputs.VERSION }}.nupkg -k ${{secrets.NUGET_SECRET_KEY}} -s https://api.nuget.org/v3/index.json --skip-duplicate --no-symbols true
+      run: dotnet nuget push /home/runner/work/eform-angular-frontend-base/eform-angular-frontend-base/artifacts/Microting.EformAngularFrontendBase.${{ steps.get_version.outputs.VERSION }}.nupkg -k ${{secrets.NUGET_SECRET_KEY}} -s https://api.nuget.org/v3/index.json --skip-duplicate --no-symbols true
     - name: Notify slack fail
       if: ${{ failure() }}
       env:
