@@ -114,6 +114,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                 public const string ReadJasperReport = "eforms_read_jasper_report";
                 public const string UpdateJasperReport = "eforms_update_jasper_report";
                 public const string ExportEformExcel = "eform_export_eform_excel";
+                public const string AllowManagingEformTags = "eform_allow_managing_eform_tags";
             }
 
             public static class EmailRecipientsClaims
@@ -206,6 +207,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                 public const string ReadJasperReport = EformClaims.EformsClaims.ReadJasperReport;
                 public const string UpdateJasperReport = EformClaims.EformsClaims.UpdateJasperReport;
                 public const string ExportEformExcel = EformClaims.EformsClaims.ExportEformExcel;
+                public const string AllowManagingEformTags = EformClaims.EformsClaims.AllowManagingEformTags;
             }
 
             public static class EmailRecipients
@@ -320,6 +322,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                     public const int ReadJasperReport = 43;
                     public const int UpdateJasperReport = 44;
                     public const int ExportEformExcel = 47;
+                    public const int AllowManagingEformTags = 52;
                 }
 
                 public static class EmailRecipients

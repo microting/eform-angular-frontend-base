@@ -215,6 +215,12 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Data.Seed.SeedItems
                     Id = 27,
                     PermissionId = AuthConsts.DbIds.Permissions.Eforms.ExportEformExcel,
                     SecurityGroupId = AuthConsts.DbIds.SecurityGroups.EformAdmins
+                },
+                new GroupPermission()
+                {
+                    Id = 31,
+                    PermissionId = AuthConsts.DbIds.Permissions.Eforms.AllowManagingEformTags,
+                    SecurityGroupId = AuthConsts.DbIds.SecurityGroups.EformAdmins
                 }
             );
             return modelBuilder;
