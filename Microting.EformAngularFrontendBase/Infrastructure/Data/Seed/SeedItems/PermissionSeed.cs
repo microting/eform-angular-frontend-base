@@ -379,6 +379,13 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Data.Seed.SeedItems
                     ClaimName = AuthConsts.EformClaims.EmailRecipientsClaims.Read,
                     PermissionName = "Read e-mail recipients",
                     PermissionTypeId = AuthConsts.DbIds.PermissionTypes.EmailRecipients,
+                },
+                new Permission()
+                {
+                    Id = AuthConsts.DbIds.Permissions.Eforms.AllowManagingEformTags,
+                    ClaimName = AuthConsts.EformClaims.EformsClaims.AllowManagingEformTags,
+                    PermissionName = "Allow managing eform tags",
+                    PermissionTypeId = AuthConsts.DbIds.PermissionTypes.Eforms,
                 }
             );
             return modelBuilder;
