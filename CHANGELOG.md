@@ -1,5 +1,14 @@
 # Changelog
 
+## [v1.0.9](https://github.com/microting/eform-angular-frontend-base/tree/v1.0.9) (2021-07-19)
+
+[Full Changelog](https://github.com/microting/eform-angular-frontend-base/compare/v1.0.8...v1.0.9)
+
+**Implemented enhancements:**
+
+- Bump Microting.eFormApi.BasePn from 3.0.30 to 3.0.31 [\#14](https://github.com/microting/eform-angular-frontend-base/issues/14)
+- Bump Microting.eForm from 5.2.17 to 5.2.18 [\#13](https://github.com/microting/eform-angular-frontend-base/issues/13)
+
 ## [v1.0.8](https://github.com/microting/eform-angular-frontend-base/tree/v1.0.8) (2021-07-15)
 
 [Full Changelog](https://github.com/microting/eform-angular-frontend-base/compare/v1.0.7...v1.0.8)
@@ -56,6 +65,7 @@
 **Merged pull requests:**
 
 - Add permission for managing tag button on eform page  [\#2](https://github.com/microting/eform-angular-frontend-base/pull/2) ([sanioooook](https://github.com/sanioooook))
+- Migrate from backend to independent NuGet [\#1](https://github.com/microting/eform-angular-frontend-base/pull/1) ([sanioooook](https://github.com/sanioooook))
 
 ## [v1.0.1](https://github.com/microting/eform-angular-frontend-base/tree/v1.0.1) (2021-06-12)
 
@@ -64,10 +74,6 @@
 ## [v1.0.0](https://github.com/microting/eform-angular-frontend-base/tree/v1.0.0) (2021-06-12)
 
 [Full Changelog](https://github.com/microting/eform-angular-frontend-base/compare/bb9debfda498424e8f62c8dfccd78a7073a5598f...v1.0.0)
-
-**Merged pull requests:**
-
-- Migrate from backend to independent NuGet [\#1](https://github.com/microting/eform-angular-frontend-base/pull/1) ([sanioooook](https://github.com/sanioooook))
 
 
 
