@@ -1,5 +1,14 @@
 # Changelog
 
+## [v1.0.11](https://github.com/microting/eform-angular-frontend-base/tree/v1.0.11) (2021-08-04)
+
+[Full Changelog](https://github.com/microting/eform-angular-frontend-base/compare/v1.0.10...v1.0.11)
+
+**Implemented enhancements:**
+
+- Bump Microting.eFormApi.BasePn from 3.0.33 to 3.0.34 [\#17](https://github.com/microting/eform-angular-frontend-base/issues/17)
+- Bump Microting.eForm from 5.2.21 to 5.2.22 [\#16](https://github.com/microting/eform-angular-frontend-base/issues/16)
+
 ## [v1.0.10](https://github.com/microting/eform-angular-frontend-base/tree/v1.0.10) (2021-08-01)
 
 [Full Changelog](https://github.com/microting/eform-angular-frontend-base/compare/v1.0.9...v1.0.10)
