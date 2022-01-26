@@ -1,7 +1,7 @@
 ﻿/*
 The MIT License (MIT)
 
-Copyright (c) 2007 - 2021 Microting A/S
+Copyright (c) 2007 - 2022 Microting A/S
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -31,167 +31,172 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Data.Seed.SeedItems
     {
         public static EformConfigurationValue[] Data => new[]
         {
-            new EformConfigurationValue()
+            new EformConfigurationValue
             {
                 Id = "ConnectionStringsSdk:SdkConnection",
                 Value = ""
             },
-            new EformConfigurationValue()
+            new EformConfigurationValue
             {
                 Id = "ApplicationSettings:DefaultLocale",
                 Value = "en-US"
             },
-            new EformConfigurationValue()
+            new EformConfigurationValue
             {
                 Id = "ApplicationSettings:SiteLink",
                 Value = ""
             },
-            new EformConfigurationValue()
+            new EformConfigurationValue
             {
                 Id = "ApplicationSettings:SecurityCode",
                 Value = "code"
             },
-            new EformConfigurationValue()
+            new EformConfigurationValue
             {
                 Id = "ApplicationSettings:DefaultPassword",
                 Value = "Qq1234567$"
             },
-            new EformConfigurationValue()
+            new EformConfigurationValue
             {
                 Id = "ApplicationSettings:IsTwoFactorForced",
                 Value = "false"
             },
-            new EformConfigurationValue()
+            new EformConfigurationValue
+            {
+                Id = "ApplicationSettings:IsUserbackWidgetEnabled",
+                Value = "true"
+            },
+            new EformConfigurationValue
             {
                 Id = "EmailSettings:SmtpHost",
                 Value = ""
             },
-            new EformConfigurationValue()
+            new EformConfigurationValue
             {
                 Id = "EmailSettings:SmtpPort",
                 Value = "25"
             },
-            new EformConfigurationValue()
+            new EformConfigurationValue
             {
                 Id = "EmailSettings:Login",
                 Value = ""
             },
-            new EformConfigurationValue()
+            new EformConfigurationValue
             {
                 Id = "EmailSettings:Password",
                 Value = ""
             },
-            new EformConfigurationValue()
+            new EformConfigurationValue
             {
                 Id = "EmailSettings:SendGridKey",
                 Value = ""
             },
-            new EformConfigurationValue()
+            new EformConfigurationValue
             {
                 Id = "LoginPageSettings:MainText",
                 Value = "eForm Backend"
             },
-            new EformConfigurationValue()
+            new EformConfigurationValue
             {
                 Id = "LoginPageSettings:MainTextVisible",
                 Value = "true"
             },
-            new EformConfigurationValue()
+            new EformConfigurationValue
             {
                 Id = "LoginPageSettings:SecondaryText",
                 Value = "No more paper-forms and back-office data entry"
             },
-            new EformConfigurationValue()
+            new EformConfigurationValue
             {
                 Id = "LoginPageSettings:SecondaryTextVisible",
                 Value = "true"
             },
-            new EformConfigurationValue()
+            new EformConfigurationValue
             {
                 Id = "LoginPageSettings:ImageLink",
                 Value = ""
             },
-            new EformConfigurationValue()
+            new EformConfigurationValue
             {
                 Id = "LoginPageSettings:ImageLinkVisible",
                 Value = "true"
             },
-            new EformConfigurationValue()
+            new EformConfigurationValue
             {
                 Id = "HeaderSettings:MainText",
                 Value = "eForm Backend"
             },
-            new EformConfigurationValue()
+            new EformConfigurationValue
             {
                 Id = "HeaderSettings:MainTextVisible",
                 Value = "true"
             },
-            new EformConfigurationValue()
+            new EformConfigurationValue
             {
                 Id = "HeaderSettings:SecondaryText",
                 Value = "No more paper-forms and back-office data entry"
             },
-            new EformConfigurationValue()
+            new EformConfigurationValue
             {
                 Id = "HeaderSettings:SecondaryTextVisible",
                 Value = "true"
             },
-            new EformConfigurationValue()
+            new EformConfigurationValue
             {
                 Id = "HeaderSettings:ImageLink",
                 Value = ""
             },
-            new EformConfigurationValue()
+            new EformConfigurationValue
             {
                 Id = "HeaderSettings:ImageLinkVisible",
                 Value = "true"
             },
-            new EformConfigurationValue()
+            new EformConfigurationValue
             {
                 Id = "Logging:IncludeScopes",
                 Value = "false"
             },
-            new EformConfigurationValue()
+            new EformConfigurationValue
             {
                 Id = "Logging:IncludeScopes:LogLevel:Default",
                 Value = "Debug"
             },
-            new EformConfigurationValue()
+            new EformConfigurationValue
             {
                 Id = "Logging:IncludeScopes:LogLevel:System",
                 Value = "Information"
             },
-            new EformConfigurationValue()
+            new EformConfigurationValue
             {
                 Id = "Logging:IncludeScopes:LogLevel:Microsoft",
                 Value = "Information"
             },
-            new EformConfigurationValue()
+            new EformConfigurationValue
             {
                 Id = "EformTokenOptions:Issuer",
                 Value = "eForm API"
             },
-            new EformConfigurationValue()
+            new EformConfigurationValue
             {
                 Id = "EformTokenOptions:Audience",
                 Value = "eForm Angular"
             },
-            new EformConfigurationValue()
+            new EformConfigurationValue
             {
                 Id = "EformTokenOptions:Expiration",
                 Value = "12:00:00"
             },
-            new EformConfigurationValue()
+            new EformConfigurationValue
             {
                 Id = "EformTokenOptions:SigningKey",
                 Value = "lTBBR6Wt7RTvcI0jwRvXVPTOmcFV6NnAUA+rIWn/5bs="
             },
-            new EformConfigurationValue()
+            new EformConfigurationValue
             {
                 Id = "EformTokenOptions:CookieName",
                 Value = "Authorization"
             },
-            new EformConfigurationValue()
+            new EformConfigurationValue
             {
                 Id = "PluginStoreSettings:PluginListLink",
                 Value = "https://raw.githubusercontent.com/microting/eform-angular-frontend/master/plugins.json"
