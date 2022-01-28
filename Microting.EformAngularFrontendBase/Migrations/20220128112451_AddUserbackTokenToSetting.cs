@@ -12,6 +12,11 @@ namespace Microting.EformAngularFrontendBase.Migrations
                 table: "ConfigurationValues",
                 columns: new[] { "Id", "Value" },
                 values: new object[] { "ApplicationSettings:UserbackToken", "33542|62605|dEaGb7GN0RoGEOMwEEWGh1pnh" });
+
+            migrationBuilder.InsertData(
+                table: "ConfigurationValues",
+                columns: new[] { "Id", "Value" },
+                values: new object[] { "ApplicationSettings:IsUserbackWidgetEnabled", "false" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -20,6 +25,11 @@ namespace Microting.EformAngularFrontendBase.Migrations
                 table: "ConfigurationValues",
                 keyColumn: "Id",
                 keyValue: "ApplicationSettings:UserbackToken");
+
+            migrationBuilder.InsertData(
+                table: "ConfigurationValues",
+                columns: new[] { "Id", "Value" },
+                values: new object[] { "ApplicationSettings:IsUserbackWidgetEnabled", "true" });
         }
     }
 }

@@ -154,7 +154,7 @@ namespace Microting.EformAngularFrontendBase.Migrations
                         new
                         {
                             Id = "ApplicationSettings:IsUserbackWidgetEnabled",
-                            Value = "true"
+                            Value = "false"
                         },
                         new
                         {

@@ -64,7 +64,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Data.Seed.SeedItems
             new EformConfigurationValue
             {
                 Id = "ApplicationSettings:IsUserbackWidgetEnabled",
-                Value = "true"
+                Value = "false"
             },
             new EformConfigurationValue
             {
