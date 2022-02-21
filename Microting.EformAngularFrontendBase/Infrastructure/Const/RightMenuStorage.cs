@@ -205,6 +205,33 @@
                             {
                                 DefaultLink = "/security",
                                 E2EId = "security",
+                                Permissions = new List<PluginMenuTemplatePermissionModel>
+                                {
+                                    new PluginMenuTemplatePermissionModel
+                                    {
+                                        ClaimName = AuthConsts.EformClaims.UserManagementClaims.Read,
+                                        PermissionName = "Read",
+                                        PermissionTypeName = "User management",
+                                    },
+                                    new PluginMenuTemplatePermissionModel
+                                    {
+                                        ClaimName = AuthConsts.EformClaims.UserManagementClaims.Create,
+                                        PermissionName = "Create",
+                                        PermissionTypeName = "User management",
+                                    },
+                                    new PluginMenuTemplatePermissionModel
+                                    {
+                                        ClaimName = AuthConsts.EformClaims.UserManagementClaims.Delete,
+                                        PermissionName = "Delete",
+                                        PermissionTypeName = "User management",
+                                    },
+                                    new PluginMenuTemplatePermissionModel
+                                    {
+                                        ClaimName = AuthConsts.EformClaims.UserManagementClaims.Update,
+                                        PermissionName = "Update",
+                                        PermissionTypeName = "User management",
+                                    }
+                                }
                             },
                             Translations = new List<PluginMenuTranslationModel>
                             {
