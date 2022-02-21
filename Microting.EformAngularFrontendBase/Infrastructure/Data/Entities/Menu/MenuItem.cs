@@ -49,5 +49,9 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Data.Entities.Menu
         public virtual List<MenuItemSecurityGroup> MenuItemSecurityGroups { get; set; }
             = new List<MenuItemSecurityGroup>();
 
+        /// <summary>
+        /// default value - true
+        /// </summary>
+        public bool IsInternalLink { get; set; } = true;
     }
 }
