@@ -42,7 +42,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Data.Factories
             });
             return new BaseDbContext(optionsBuilder.Options);
 
-            // dotnet ef migrations add InitialCreate --project EformAngularFrontendBase --startup-project DBMigrator
+            // dotnet ef migrations add InitialCreate --project Microting.EformAngularFrontendBase --startup-project DBMigrator
         }
     }
 }
