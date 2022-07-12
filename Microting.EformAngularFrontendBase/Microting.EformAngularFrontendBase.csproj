@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
+        <PackageIcon>icon.png</PackageIcon>
     </PropertyGroup>
 
    <ItemGroup>
@@ -10,5 +11,12 @@
       </PackageReference>
       <PackageReference Include="Microting.eForm" Version="5.5.35" />
       <PackageReference Include="Microting.eFormApi.BasePn" Version="3.1.68" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="images\icon.png">
+            <Pack>true</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
     </ItemGroup>
 </Project>
