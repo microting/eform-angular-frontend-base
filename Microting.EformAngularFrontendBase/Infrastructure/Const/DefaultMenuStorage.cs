@@ -1,4 +1,6 @@
-﻿namespace Microting.EformAngularFrontendBase.Infrastructure.Const
+﻿using Microting.EformAngularFrontendBase.Infrastructure.Data.Entities.Permissions;
+
+namespace Microting.EformAngularFrontendBase.Infrastructure.Const
 {
     using System.Collections.Generic;
     using Data.Entities.Menu;
@@ -54,6 +56,13 @@
                             Language = LanguageNames.Ukrainian,
                             LocaleName = LocaleNames.Ukrainian,
                         }
+                    },
+                    MenuItemSecurityGroups = new List<MenuItemSecurityGroup>()
+                    {
+                        new MenuItemSecurityGroup()
+                        {
+                            SecurityGroupId = 1
+                        }
                     }
                 },
                 new MenuItem
@@ -99,6 +108,13 @@
                             Language = LanguageNames.Ukrainian,
                             LocaleName = LocaleNames.Ukrainian,
                         }
+                    },
+                    MenuItemSecurityGroups = new List<MenuItemSecurityGroup>()
+                    {
+                        new MenuItemSecurityGroup()
+                        {
+                            SecurityGroupId = 1
+                        }
                     }
                 },
                 new MenuItem
@@ -143,6 +159,13 @@
                             MenuItemId = MenuTemplateIds.Advanced,
                             Language = LanguageNames.Ukrainian,
                             LocaleName = LocaleNames.Ukrainian,
+                        }
+                    },
+                    MenuItemSecurityGroups = new List<MenuItemSecurityGroup>()
+                    {
+                        new MenuItemSecurityGroup()
+                        {
+                            SecurityGroupId = 1
                         }
                     }
                 },
@@ -190,6 +213,13 @@
                             Language = LanguageNames.Ukrainian,
                             LocaleName = LocaleNames.Ukrainian,
                         }
+                    },
+                    MenuItemSecurityGroups = new List<MenuItemSecurityGroup>()
+                    {
+                        new MenuItemSecurityGroup()
+                        {
+                            SecurityGroupId = 1
+                        }
                     }
                 },
                 new MenuItem
@@ -235,6 +265,13 @@
                             MenuItemId = MenuTemplateIds.Workers,
                             Language = LanguageNames.Ukrainian,
                             LocaleName = LocaleNames.Ukrainian,
+                        }
+                    },
+                    MenuItemSecurityGroups = new List<MenuItemSecurityGroup>()
+                    {
+                        new MenuItemSecurityGroup()
+                        {
+                            SecurityGroupId = 1
                         }
                     }
                 },
@@ -282,6 +319,13 @@
                             Language = LanguageNames.Ukrainian,
                             LocaleName = LocaleNames.Ukrainian,
                         }
+                    },
+                    MenuItemSecurityGroups = new List<MenuItemSecurityGroup>()
+                    {
+                        new MenuItemSecurityGroup()
+                        {
+                            SecurityGroupId = 1
+                        }
                     }
                 },
                 new MenuItem
@@ -327,6 +371,13 @@
                             MenuItemId = MenuTemplateIds.SearchableList,
                             Language = LanguageNames.Ukrainian,
                             LocaleName = LocaleNames.Ukrainian,
+                        }
+                    },
+                    MenuItemSecurityGroups = new List<MenuItemSecurityGroup>()
+                    {
+                        new MenuItemSecurityGroup()
+                        {
+                            SecurityGroupId = 1
                         }
                     }
                 },
@@ -374,6 +425,13 @@
                             Language = LanguageNames.Ukrainian,
                             LocaleName = LocaleNames.Ukrainian,
                         }
+                    },
+                    MenuItemSecurityGroups = new List<MenuItemSecurityGroup>()
+                    {
+                        new MenuItemSecurityGroup()
+                        {
+                            SecurityGroupId = 1
+                        }
                     }
                 },
                 new MenuItem
@@ -419,6 +477,13 @@
                             MenuItemId = MenuTemplateIds.ApplicationSettings,
                             Language = LanguageNames.Ukrainian,
                             LocaleName = LocaleNames.Ukrainian,
+                        }
+                    },
+                    MenuItemSecurityGroups = new List<MenuItemSecurityGroup>()
+                    {
+                        new MenuItemSecurityGroup()
+                        {
+                            SecurityGroupId = 1
                         }
                     }
                 },
@@ -466,6 +531,13 @@
                             Language = LanguageNames.Ukrainian,
                             LocaleName = LocaleNames.Ukrainian,
                         }
+                    },
+                    MenuItemSecurityGroups = new List<MenuItemSecurityGroup>()
+                    {
+                        new MenuItemSecurityGroup()
+                        {
+                            SecurityGroupId = 1
+                        }
                     }
                 },
                 new MenuItem
@@ -512,6 +584,13 @@
                             Language = LanguageNames.Ukrainian,
                             LocaleName = LocaleNames.Ukrainian,
                         }
+                    },
+                    MenuItemSecurityGroups = new List<MenuItemSecurityGroup>()
+                    {
+                        new MenuItemSecurityGroup()
+                        {
+                            SecurityGroupId = 1
+                        }
                     }
                 },
                 new MenuItem
@@ -557,6 +636,13 @@
                             MenuItemId = MenuTemplateIds.EmailRecipients,
                             Language = LanguageNames.Ukrainian,
                             LocaleName = LocaleNames.Ukrainian,
+                        }
+                    },
+                    MenuItemSecurityGroups = new List<MenuItemSecurityGroup>()
+                    {
+                        new MenuItemSecurityGroup()
+                        {
+                            SecurityGroupId = 1
                         }
                     }
                 }
