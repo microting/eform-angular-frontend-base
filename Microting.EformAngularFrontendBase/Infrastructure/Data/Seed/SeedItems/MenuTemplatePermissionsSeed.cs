@@ -37,215 +37,215 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Data.Seed.SeedItems
                 {
                     Id = 1,
                     PermissionId = AuthConsts.DbIds.Permissions.WorkersClaims.Read,
-                    MenuTemplateId = MenuTemplateIds.Workers,
+                    MenuTemplateId = MenuTemplateIds.Workers
                 },
                 new MenuTemplatePermission()
                 {
                     Id = 2,
                     PermissionId = AuthConsts.DbIds.Permissions.WorkersClaims.Create,
-                    MenuTemplateId = MenuTemplateIds.Workers,
+                    MenuTemplateId = MenuTemplateIds.Workers
                 },
                 new MenuTemplatePermission()
                 {
                     Id = 3,
                     PermissionId = AuthConsts.DbIds.Permissions.WorkersClaims.Delete,
-                    MenuTemplateId = MenuTemplateIds.Workers,
+                    MenuTemplateId = MenuTemplateIds.Workers
                 },
                 new MenuTemplatePermission()
                 {
                     Id = 4,
                     PermissionId = AuthConsts.DbIds.Permissions.WorkersClaims.Update,
-                    MenuTemplateId = MenuTemplateIds.Workers,
+                    MenuTemplateId = MenuTemplateIds.Workers
                 },
                 new MenuTemplatePermission()
                 {
                     Id = 5,
                     PermissionId = AuthConsts.DbIds.Permissions.SitesClaims.Read,
-                    MenuTemplateId = MenuTemplateIds.Sites,
+                    MenuTemplateId = MenuTemplateIds.Sites
                 },
                 new MenuTemplatePermission()
                 {
                     Id = 6,
                     PermissionId = AuthConsts.DbIds.Permissions.SitesClaims.Delete,
-                    MenuTemplateId = MenuTemplateIds.Sites,
+                    MenuTemplateId = MenuTemplateIds.Sites
                 },
                 new MenuTemplatePermission()
                 {
                     Id = 7,
                     PermissionId = AuthConsts.DbIds.Permissions.SitesClaims.Update,
-                    MenuTemplateId = MenuTemplateIds.Sites,
+                    MenuTemplateId = MenuTemplateIds.Sites
                 },
                 new MenuTemplatePermission()
                 {
                     Id = 8,
                     PermissionId = AuthConsts.DbIds.Permissions.EntitySearchClaims.Read,
-                    MenuTemplateId = MenuTemplateIds.SearchableList,
+                    MenuTemplateId = MenuTemplateIds.SearchableList
                 },
                 new MenuTemplatePermission()
                 {
                     Id = 9, 
                     PermissionId = AuthConsts.DbIds.Permissions.EntitySearchClaims.Create,
-                    MenuTemplateId = MenuTemplateIds.SearchableList,
+                    MenuTemplateId = MenuTemplateIds.SearchableList
                 },
                 new MenuTemplatePermission()
                 {
                     Id = 10,
                     PermissionId = AuthConsts.DbIds.Permissions.EntitySearchClaims.Delete,
-                    MenuTemplateId = MenuTemplateIds.SearchableList,
+                    MenuTemplateId = MenuTemplateIds.SearchableList
                 },
                 new MenuTemplatePermission()
                 {
                     Id = 11,
                     PermissionId = AuthConsts.DbIds.Permissions.EntitySearchClaims.Update,
-                    MenuTemplateId = MenuTemplateIds.SearchableList,
+                    MenuTemplateId = MenuTemplateIds.SearchableList
                 },
                 new MenuTemplatePermission()
                 {
                     Id = 12,
                     PermissionId = AuthConsts.DbIds.Permissions.EntitySelectClaims.Read,
-                    MenuTemplateId = MenuTemplateIds.SearchableList,
+                    MenuTemplateId = MenuTemplateIds.SearchableList
                 },
                 new MenuTemplatePermission()
                 {
                     Id = 13, 
                     PermissionId = AuthConsts.DbIds.Permissions.EntitySelectClaims.Create,
-                    MenuTemplateId = MenuTemplateIds.SearchableList,
+                    MenuTemplateId = MenuTemplateIds.SearchableList
                 },
                 new MenuTemplatePermission()
                 {
                     Id = 14,
                     PermissionId = AuthConsts.DbIds.Permissions.EntitySelectClaims.Delete,
-                    MenuTemplateId = MenuTemplateIds.SearchableList,
+                    MenuTemplateId = MenuTemplateIds.SearchableList
                 },
                 new MenuTemplatePermission()
                 {
                     Id = 15, 
                     PermissionId = AuthConsts.DbIds.Permissions.EntitySelectClaims.Update,
-                    MenuTemplateId = MenuTemplateIds.SearchableList,
+                    MenuTemplateId = MenuTemplateIds.SearchableList
                 },
                 // Units
                 new MenuTemplatePermission()
                 {
                     Id = 16, 
                     PermissionId = AuthConsts.DbIds.Permissions.Units.Read,
-                    MenuTemplateId = MenuTemplateIds.Units,
+                    MenuTemplateId = MenuTemplateIds.Units
                 },
                 new MenuTemplatePermission()
                 {
                     Id = 17,
                     PermissionId = AuthConsts.DbIds.Permissions.Units.Update,
-                    MenuTemplateId = MenuTemplateIds.Units,
+                    MenuTemplateId = MenuTemplateIds.Units
                 },
                 // Device users
                 new MenuTemplatePermission()
                 {
                     Id = 18,
                     PermissionId = AuthConsts.DbIds.Permissions.DeviceUsers.Read,
-                    MenuTemplateId = MenuTemplateIds.DeviceUsers,
+                    MenuTemplateId = MenuTemplateIds.DeviceUsers
                 },
                 new MenuTemplatePermission()
                 {
                     Id = 19,
                     PermissionId = AuthConsts.DbIds.Permissions.DeviceUsers.Create,
-                    MenuTemplateId = MenuTemplateIds.DeviceUsers,
+                    MenuTemplateId = MenuTemplateIds.DeviceUsers
                 },
                 new MenuTemplatePermission()
                 {
                     Id = 20,
                     PermissionId = AuthConsts.DbIds.Permissions.DeviceUsers.Delete,
-                    MenuTemplateId = MenuTemplateIds.DeviceUsers,
+                    MenuTemplateId = MenuTemplateIds.DeviceUsers
                 },
                 new MenuTemplatePermission()
                 {
                     Id = 21,
                     PermissionId = AuthConsts.DbIds.Permissions.DeviceUsers.Update,
-                    MenuTemplateId = MenuTemplateIds.DeviceUsers,
+                    MenuTemplateId = MenuTemplateIds.DeviceUsers
                 },
                 // Eforms
                 new MenuTemplatePermission()
                 {
                     Id = 22, 
                     PermissionId = AuthConsts.DbIds.Permissions.Eforms.Create,
-                    MenuTemplateId = MenuTemplateIds.MyEforms,
+                    MenuTemplateId = MenuTemplateIds.MyEforms
                 },
                 new MenuTemplatePermission()
                 {
                     Id = 23, 
                     PermissionId = AuthConsts.DbIds.Permissions.Eforms.Delete,
-                    MenuTemplateId = MenuTemplateIds.MyEforms,
+                    MenuTemplateId = MenuTemplateIds.MyEforms
                 },
                 new MenuTemplatePermission()
                 {
                     Id = 24, 
                     PermissionId = AuthConsts.DbIds.Permissions.Eforms.Read,
-                    MenuTemplateId = MenuTemplateIds.MyEforms,
+                    MenuTemplateId = MenuTemplateIds.MyEforms
                 },
                 new MenuTemplatePermission()
                 {
                     Id = 25, 
                     PermissionId = AuthConsts.DbIds.Permissions.Eforms.UpdateColumns,
-                    MenuTemplateId = MenuTemplateIds.MyEforms,
+                    MenuTemplateId = MenuTemplateIds.MyEforms
                 },
                 new MenuTemplatePermission()
                 {
                     Id = 26, 
                     PermissionId = AuthConsts.DbIds.Permissions.Eforms.DownloadXml,
-                    MenuTemplateId = MenuTemplateIds.MyEforms,
+                    MenuTemplateId = MenuTemplateIds.MyEforms
                 },
                 new MenuTemplatePermission()
                 {
                     Id = 27, 
                     PermissionId = AuthConsts.DbIds.Permissions.Eforms.UploadZip,
-                    MenuTemplateId = MenuTemplateIds.MyEforms,
+                    MenuTemplateId = MenuTemplateIds.MyEforms
                 },
                 
                 new MenuTemplatePermission()
                 {
                     Id = 28,
                     PermissionId = AuthConsts.DbIds.Permissions.Eforms.PairingRead,
-                    MenuTemplateId = MenuTemplateIds.MyEforms,
+                    MenuTemplateId = MenuTemplateIds.MyEforms
                 },
                 new MenuTemplatePermission()
                 {
                     Id = 29,
                     PermissionId = AuthConsts.DbIds.Permissions.Eforms.PairingUpdate,
-                    MenuTemplateId = MenuTemplateIds.MyEforms,
+                    MenuTemplateId = MenuTemplateIds.MyEforms
                 },
                 new MenuTemplatePermission()
                 {
                     Id = 30,
                     PermissionId = AuthConsts.DbIds.Permissions.Eforms.ReadTags,
-                    MenuTemplateId = MenuTemplateIds.MyEforms,
+                    MenuTemplateId = MenuTemplateIds.MyEforms
                 },
                 new MenuTemplatePermission()
                 {
                     Id = 31,
                     PermissionId = AuthConsts.DbIds.Permissions.Eforms.UpdateTags,
-                    MenuTemplateId = MenuTemplateIds.MyEforms,
+                    MenuTemplateId = MenuTemplateIds.MyEforms
                 },
                 new MenuTemplatePermission()
                 {
                     Id = 32,
                     PermissionId = AuthConsts.DbIds.Permissions.Eforms.GetCsv,
-                    MenuTemplateId = MenuTemplateIds.MyEforms,
+                    MenuTemplateId = MenuTemplateIds.MyEforms
                 },
                 new MenuTemplatePermission()
                 {
                     Id = 33,
                     PermissionId = AuthConsts.DbIds.Permissions.Eforms.ReadJasperReport,
-                    MenuTemplateId = MenuTemplateIds.MyEforms,
+                    MenuTemplateId = MenuTemplateIds.MyEforms
                 },
                 new MenuTemplatePermission()
                 {
                     Id = 34, 
                     PermissionId = AuthConsts.DbIds.Permissions.Eforms.UpdateJasperReport,
-                    MenuTemplateId = MenuTemplateIds.MyEforms,
+                    MenuTemplateId = MenuTemplateIds.MyEforms
                 },
                 new MenuTemplatePermission()
                 {
                     Id = 35,
                     PermissionId = AuthConsts.DbIds.Permissions.Eforms.ExportEformExcel,
-                    MenuTemplateId = MenuTemplateIds.MyEforms,
+                    MenuTemplateId = MenuTemplateIds.MyEforms
                 }
             );
             return modelBuilder;

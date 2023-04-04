@@ -36,25 +36,25 @@
                                     {
                                         ClaimName = AuthConsts.EformClaims.UserManagementClaims.Read,
                                         PermissionName = "Read",
-                                        PermissionTypeName = "User management",
+                                        PermissionTypeName = "User management"
                                     },
                                     new PluginMenuTemplatePermissionModel
                                     {
                                         ClaimName = AuthConsts.EformClaims.UserManagementClaims.Create,
                                         PermissionName = "Create",
-                                        PermissionTypeName = "User management",
+                                        PermissionTypeName = "User management"
                                     },
                                     new PluginMenuTemplatePermissionModel
                                     {
                                         ClaimName = AuthConsts.EformClaims.UserManagementClaims.Delete,
                                         PermissionName = "Delete",
-                                        PermissionTypeName = "User management",
+                                        PermissionTypeName = "User management"
                                     },
                                     new PluginMenuTemplatePermissionModel
                                     {
                                         ClaimName = AuthConsts.EformClaims.UserManagementClaims.Update,
                                         PermissionName = "Update",
-                                        PermissionTypeName = "User management",
+                                        PermissionTypeName = "User management"
                                     }
                                 }
                             },
@@ -64,25 +64,25 @@
                                 {
                                     Name = "User Management",
                                     LocaleName = LocaleNames.English,
-                                    Language = LanguageNames.English,
+                                    Language = LanguageNames.English
                                 },
                                 new PluginMenuTranslationModel
                                 {
                                     Name = "Brugeradministration",
                                     LocaleName = LocaleNames.Danish,
-                                    Language = LanguageNames.Danish,
+                                    Language = LanguageNames.Danish
                                 },
                                 new PluginMenuTranslationModel
                                 {
                                     Name = "Benutzerverwaltung",
                                     LocaleName = LocaleNames.German,
-                                    Language = LanguageNames.German,
+                                    Language = LanguageNames.German
                                 },
                                 new PluginMenuTranslationModel
                                 {
                                     Name = "Керування користувачами",
                                     LocaleName = LocaleNames.Ukrainian,
-                                    Language = LanguageNames.Ukrainian,
+                                    Language = LanguageNames.Ukrainian
                                 }
                             }
                         },
@@ -102,25 +102,25 @@
                                     {
                                         ClaimName = AuthConsts.EformClaims.UserManagementClaims.Read,
                                         PermissionName = "Read",
-                                        PermissionTypeName = "User management",
+                                        PermissionTypeName = "User management"
                                     },
                                     new PluginMenuTemplatePermissionModel
                                     {
                                         ClaimName = AuthConsts.EformClaims.UserManagementClaims.Create,
                                         PermissionName = "Create",
-                                        PermissionTypeName = "User management",
+                                        PermissionTypeName = "User management"
                                     },
                                     new PluginMenuTemplatePermissionModel
                                     {
                                         ClaimName = AuthConsts.EformClaims.UserManagementClaims.Delete,
                                         PermissionName = "Delete",
-                                        PermissionTypeName = "User management",
+                                        PermissionTypeName = "User management"
                                     },
                                     new PluginMenuTemplatePermissionModel
                                     {
                                         ClaimName = AuthConsts.EformClaims.UserManagementClaims.Update,
                                         PermissionName = "Update",
-                                        PermissionTypeName = "User management",
+                                        PermissionTypeName = "User management"
                                     }
                                 }
                             },
@@ -132,25 +132,25 @@
                                 {
                                     Name = "Menu Editor",
                                     Language = LanguageNames.English,
-                                    LocaleName = LocaleNames.English,
+                                    LocaleName = LocaleNames.English
                                 },
                                 new PluginMenuTranslationModel
                                 {
                                     Name = "Menu Editor",
                                     Language = LanguageNames.Danish,
-                                    LocaleName = LocaleNames.Danish,
+                                    LocaleName = LocaleNames.Danish
                                 },
                                 new PluginMenuTranslationModel
                                 {
                                     Name = "Menü-Editor",
                                     Language = LanguageNames.German,
-                                    LocaleName = LocaleNames.German,
+                                    LocaleName = LocaleNames.German
                                 },
                                 new PluginMenuTranslationModel
                                 {
                                     Name = "Редактор меню",
                                     Language = LanguageNames.Ukrainian,
-                                    LocaleName = LocaleNames.Ukrainian,
+                                    LocaleName = LocaleNames.Ukrainian
                                 }
                             }
                         },
@@ -164,7 +164,7 @@
                             MenuTemplate = new PluginMenuTemplateModel
                             {
                                 DefaultLink = "/account-management/settings",
-                                E2EId = "settings",
+                                E2EId = "settings"
                             },
                             Translations = new List<PluginMenuTranslationModel>
                             {
@@ -172,25 +172,25 @@
                                 {
                                     Name = "Settings",
                                     LocaleName = LocaleNames.English,
-                                    Language = LanguageNames.English,
+                                    Language = LanguageNames.English
                                 },
                                 new PluginMenuTranslationModel
                                 {
                                     Name = "Indstillinger",
                                     LocaleName = LocaleNames.Danish,
-                                    Language = LanguageNames.Danish,
+                                    Language = LanguageNames.Danish
                                 },
                                 new PluginMenuTranslationModel
                                 {
                                     Name = "Einstellungen",
                                     LocaleName = LocaleNames.German,
-                                    Language = LanguageNames.German,
+                                    Language = LanguageNames.German
                                 },
                                 new PluginMenuTranslationModel
                                 {
                                     Name = "Налаштування",
                                     LocaleName = LocaleNames.Ukrainian,
-                                    Language = LanguageNames.Ukrainian,
+                                    Language = LanguageNames.Ukrainian
                                 }
                             }
                         },
@@ -211,25 +211,25 @@
                                     {
                                         ClaimName = AuthConsts.EformClaims.UserManagementClaims.Read,
                                         PermissionName = "Read",
-                                        PermissionTypeName = "User management",
+                                        PermissionTypeName = "User management"
                                     },
                                     new PluginMenuTemplatePermissionModel
                                     {
                                         ClaimName = AuthConsts.EformClaims.UserManagementClaims.Create,
                                         PermissionName = "Create",
-                                        PermissionTypeName = "User management",
+                                        PermissionTypeName = "User management"
                                     },
                                     new PluginMenuTemplatePermissionModel
                                     {
                                         ClaimName = AuthConsts.EformClaims.UserManagementClaims.Delete,
                                         PermissionName = "Delete",
-                                        PermissionTypeName = "User management",
+                                        PermissionTypeName = "User management"
                                     },
                                     new PluginMenuTemplatePermissionModel
                                     {
                                         ClaimName = AuthConsts.EformClaims.UserManagementClaims.Update,
                                         PermissionName = "Update",
-                                        PermissionTypeName = "User management",
+                                        PermissionTypeName = "User management"
                                     }
                                 }
                             },
@@ -239,25 +239,25 @@
                                 {
                                     Name = "Security",
                                     LocaleName = LocaleNames.English,
-                                    Language = LanguageNames.English,
+                                    Language = LanguageNames.English
                                 },
                                 new PluginMenuTranslationModel
                                 {
                                     Name = "Sikkerhed",
                                     LocaleName = LocaleNames.Danish,
-                                    Language = LanguageNames.Danish,
+                                    Language = LanguageNames.Danish
                                 },
                                 new PluginMenuTranslationModel
                                 {
                                     Name = "Sicherheit",
                                     LocaleName = LocaleNames.German,
-                                    Language = LanguageNames.German,
+                                    Language = LanguageNames.German
                                 },
                                 new PluginMenuTranslationModel
                                 {
                                     Name = "Безпека",
                                     LocaleName = LocaleNames.Ukrainian,
-                                    Language = LanguageNames.Ukrainian,
+                                    Language = LanguageNames.Ukrainian
                                 }
                             }
                         },
@@ -271,7 +271,7 @@
                             MenuTemplate = new PluginMenuTemplateModel
                             {
                                 DefaultLink = "/account-management/change-password",
-                                E2EId = "change-password",
+                                E2EId = "change-password"
                             },
                             Translations = new List<PluginMenuTranslationModel>
                             {
@@ -279,25 +279,25 @@
                                 {
                                     Name = "Change password",
                                     LocaleName = LocaleNames.English,
-                                    Language = LanguageNames.English,
+                                    Language = LanguageNames.English
                                 },
                                 new PluginMenuTranslationModel
                                 {
                                     Name = "Skift adgangskode",
                                     LocaleName = LocaleNames.Danish,
-                                    Language = LanguageNames.Danish,
+                                    Language = LanguageNames.Danish
                                 },
                                 new PluginMenuTranslationModel
                                 {
                                     Name = "Passwort ändern",
                                     LocaleName = LocaleNames.German,
-                                    Language = LanguageNames.German,
+                                    Language = LanguageNames.German
                                 },
                                 new PluginMenuTranslationModel
                                 {
                                     Name = "Змінити пароль",
                                     LocaleName = LocaleNames.Ukrainian,
-                                    Language = LanguageNames.Ukrainian,
+                                    Language = LanguageNames.Ukrainian
                                 }
                             }
                         },
@@ -311,7 +311,7 @@
                             MenuTemplate = new PluginMenuTemplateModel
                             {
                                 DefaultLink = "/auth/sign-out",
-                                E2EId = "sign-out",
+                                E2EId = "sign-out"
                             },
                             Translations = new List<PluginMenuTranslationModel>
                             {
@@ -319,30 +319,30 @@
                                 {
                                     Name = "Logout",
                                     LocaleName = LocaleNames.English,
-                                    Language = LanguageNames.English,
+                                    Language = LanguageNames.English
                                 },
                                 new PluginMenuTranslationModel
                                 {
                                     Name = "Log ud",
                                     LocaleName = LocaleNames.Danish,
-                                    Language = LanguageNames.Danish,
+                                    Language = LanguageNames.Danish
                                 },
                                 new PluginMenuTranslationModel
                                 {
                                     Name = "Abmelden",
                                     LocaleName = LocaleNames.German,
-                                    Language = LanguageNames.German,
+                                    Language = LanguageNames.German
                                 },
                                 new PluginMenuTranslationModel
                                 {
                                     Name = "Вихід із системи",
                                     LocaleName = LocaleNames.Ukrainian,
-                                    Language = LanguageNames.Ukrainian,
+                                    Language = LanguageNames.Ukrainian
                                 }
                             }
-                        },
+                        }
                     }
-                },
+                }
             };
         }
     }

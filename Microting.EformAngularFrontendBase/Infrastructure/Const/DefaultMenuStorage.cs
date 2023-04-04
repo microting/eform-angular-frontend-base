@@ -30,7 +30,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "My eForms",
                             MenuItemId = MenuTemplateIds.MyEforms,
                             Language = LanguageNames.English,
-                            LocaleName = LocaleNames.English,
+                            LocaleName = LocaleNames.English
                         },
                         new MenuItemTranslation
                         {
@@ -38,7 +38,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Mine eForms",
                             MenuItemId = MenuTemplateIds.MyEforms,
                             Language = LanguageNames.Danish,
-                            LocaleName = LocaleNames.Danish,
+                            LocaleName = LocaleNames.Danish
                         },
                         new MenuItemTranslation
                         {
@@ -46,7 +46,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Meine eForms",
                             MenuItemId = MenuTemplateIds.MyEforms,
                             Language = LanguageNames.German,
-                            LocaleName = LocaleNames.German,
+                            LocaleName = LocaleNames.German
                         },
                         new MenuItemTranslation
                         {
@@ -54,7 +54,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Мої ЕФорми",
                             MenuItemId = MenuTemplateIds.MyEforms,
                             Language = LanguageNames.Ukrainian,
-                            LocaleName = LocaleNames.Ukrainian,
+                            LocaleName = LocaleNames.Ukrainian
                         }
                     },
                     MenuItemSecurityGroups = new List<MenuItemSecurityGroup>()
@@ -82,7 +82,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Device Users",
                             MenuItemId = MenuTemplateIds.DeviceUsers,
                             Language = LanguageNames.English,
-                            LocaleName = LocaleNames.English,
+                            LocaleName = LocaleNames.English
                         },
                         new MenuItemTranslation
                         {
@@ -90,7 +90,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                              Name = "Mobilbrugere",
                              MenuItemId = MenuTemplateIds.DeviceUsers,
                              Language = LanguageNames.Danish,
-                             LocaleName = LocaleNames.Danish,
+                             LocaleName = LocaleNames.Danish
                         },
                         new MenuItemTranslation
                         {
@@ -98,7 +98,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Gerätebenutzer",
                             MenuItemId = MenuTemplateIds.DeviceUsers,
                             Language = LanguageNames.German,
-                            LocaleName = LocaleNames.German,
+                            LocaleName = LocaleNames.German
                         },
                         new MenuItemTranslation
                         {
@@ -106,7 +106,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Користувачі пристроїв",
                             MenuItemId = MenuTemplateIds.DeviceUsers,
                             Language = LanguageNames.Ukrainian,
-                            LocaleName = LocaleNames.Ukrainian,
+                            LocaleName = LocaleNames.Ukrainian
                         }
                     },
                     MenuItemSecurityGroups = new List<MenuItemSecurityGroup>()
@@ -134,7 +134,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Advanced",
                             MenuItemId = MenuTemplateIds.Advanced,
                             Language = LanguageNames.English,
-                            LocaleName = LocaleNames.English,
+                            LocaleName = LocaleNames.English
                         },
                         new MenuItemTranslation
                         {
@@ -142,7 +142,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Admin",
                             MenuItemId = MenuTemplateIds.Advanced,
                             Language = LanguageNames.Danish,
-                            LocaleName = LocaleNames.Danish,
+                            LocaleName = LocaleNames.Danish
                         },
                         new MenuItemTranslation
                         {
@@ -150,7 +150,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Fortgeschritten",
                             MenuItemId = MenuTemplateIds.Advanced,
                             Language = LanguageNames.German,
-                            LocaleName = LocaleNames.German,
+                            LocaleName = LocaleNames.German
                         },
                         new MenuItemTranslation
                         {
@@ -158,7 +158,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Додатково",
                             MenuItemId = MenuTemplateIds.Advanced,
                             Language = LanguageNames.Ukrainian,
-                            LocaleName = LocaleNames.Ukrainian,
+                            LocaleName = LocaleNames.Ukrainian
                         }
                     },
                     MenuItemSecurityGroups = new List<MenuItemSecurityGroup>()
@@ -187,7 +187,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Sites",
                             MenuItemId = MenuTemplateIds.Sites,
                             Language = LanguageNames.English,
-                            LocaleName = LocaleNames.English,
+                            LocaleName = LocaleNames.English
                         },
                         new MenuItemTranslation
                         {
@@ -195,7 +195,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Lokationer",
                             MenuItemId = MenuTemplateIds.Sites,
                             Language = LanguageNames.Danish,
-                            LocaleName = LocaleNames.Danish,
+                            LocaleName = LocaleNames.Danish
                         },
                         new MenuItemTranslation
                         {
@@ -203,7 +203,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Standorte",
                             MenuItemId = MenuTemplateIds.Sites,
                             Language = LanguageNames.German,
-                            LocaleName = LocaleNames.German,
+                            LocaleName = LocaleNames.German
                         },
                         new MenuItemTranslation
                         {
@@ -211,7 +211,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Місця",
                             MenuItemId = MenuTemplateIds.Sites,
                             Language = LanguageNames.Ukrainian,
-                            LocaleName = LocaleNames.Ukrainian,
+                            LocaleName = LocaleNames.Ukrainian
                         }
                     },
                     MenuItemSecurityGroups = new List<MenuItemSecurityGroup>()
@@ -240,7 +240,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Workers",
                             MenuItemId = MenuTemplateIds.Workers,
                             Language = LanguageNames.English,
-                            LocaleName = LocaleNames.English,
+                            LocaleName = LocaleNames.English
                         },
                         new MenuItemTranslation
                         {
@@ -248,7 +248,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Medarbejder",
                             MenuItemId = MenuTemplateIds.Workers,
                             Language = LanguageNames.Danish,
-                            LocaleName = LocaleNames.Danish,
+                            LocaleName = LocaleNames.Danish
                         },
                         new MenuItemTranslation
                         {
@@ -256,7 +256,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Mitarbeiter",
                             MenuItemId = MenuTemplateIds.Workers,
                             Language = LanguageNames.German,
-                            LocaleName = LocaleNames.German,
+                            LocaleName = LocaleNames.German
                         },
                         new MenuItemTranslation
                         {
@@ -264,7 +264,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Працівники",
                             MenuItemId = MenuTemplateIds.Workers,
                             Language = LanguageNames.Ukrainian,
-                            LocaleName = LocaleNames.Ukrainian,
+                            LocaleName = LocaleNames.Ukrainian
                         }
                     },
                     MenuItemSecurityGroups = new List<MenuItemSecurityGroup>()
@@ -293,7 +293,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Units",
                             MenuItemId = MenuTemplateIds.Units,
                             Language = LanguageNames.English,
-                            LocaleName = LocaleNames.English,
+                            LocaleName = LocaleNames.English
                         },
                         new MenuItemTranslation
                         {
@@ -301,7 +301,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Enheder",
                             MenuItemId = MenuTemplateIds.Units,
                             Language = LanguageNames.Danish,
-                            LocaleName = LocaleNames.Danish,
+                            LocaleName = LocaleNames.Danish
                         },
                         new MenuItemTranslation
                         {
@@ -309,7 +309,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Einheiten",
                             MenuItemId = MenuTemplateIds.Units,
                             Language = LanguageNames.German,
-                            LocaleName = LocaleNames.German,
+                            LocaleName = LocaleNames.German
                         },
                         new MenuItemTranslation
                         {
@@ -317,7 +317,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Юніти",
                             MenuItemId = MenuTemplateIds.Units,
                             Language = LanguageNames.Ukrainian,
-                            LocaleName = LocaleNames.Ukrainian,
+                            LocaleName = LocaleNames.Ukrainian
                         }
                     },
                     MenuItemSecurityGroups = new List<MenuItemSecurityGroup>()
@@ -346,7 +346,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Searchable list",
                             MenuItemId = MenuTemplateIds.SearchableList,
                             Language = LanguageNames.English,
-                            LocaleName = LocaleNames.English,
+                            LocaleName = LocaleNames.English
                         },
                         new MenuItemTranslation
                         {
@@ -354,7 +354,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Søgbar Lister",
                             MenuItemId = MenuTemplateIds.SearchableList,
                             Language = LanguageNames.Danish,
-                            LocaleName = LocaleNames.Danish,
+                            LocaleName = LocaleNames.Danish
                         },
                         new MenuItemTranslation
                         {
@@ -362,7 +362,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Durchsuchbare Listen",
                             MenuItemId = MenuTemplateIds.SearchableList,
                             Language = LanguageNames.German,
-                            LocaleName = LocaleNames.German,
+                            LocaleName = LocaleNames.German
                         },
                         new MenuItemTranslation
                         {
@@ -370,7 +370,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Пошуковий список",
                             MenuItemId = MenuTemplateIds.SearchableList,
                             Language = LanguageNames.Ukrainian,
-                            LocaleName = LocaleNames.Ukrainian,
+                            LocaleName = LocaleNames.Ukrainian
                         }
                     },
                     MenuItemSecurityGroups = new List<MenuItemSecurityGroup>()
@@ -399,7 +399,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Selectable list",
                             MenuItemId = MenuTemplateIds.SelectableList,
                             Language = LanguageNames.English,
-                            LocaleName = LocaleNames.English,
+                            LocaleName = LocaleNames.English
                         },
                         new MenuItemTranslation
                         {
@@ -407,7 +407,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Valgbar Liste",
                             MenuItemId = MenuTemplateIds.SelectableList,
                             Language = LanguageNames.Danish,
-                            LocaleName = LocaleNames.Danish,
+                            LocaleName = LocaleNames.Danish
                         },
                         new MenuItemTranslation
                         {
@@ -415,7 +415,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Auswählbare Liste",
                             MenuItemId = MenuTemplateIds.SelectableList,
                             Language = LanguageNames.German,
-                            LocaleName = LocaleNames.German,
+                            LocaleName = LocaleNames.German
                         },
                         new MenuItemTranslation
                         {
@@ -423,7 +423,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Вибірковий список",
                             MenuItemId = MenuTemplateIds.SelectableList,
                             Language = LanguageNames.Ukrainian,
-                            LocaleName = LocaleNames.Ukrainian,
+                            LocaleName = LocaleNames.Ukrainian
                         }
                     },
                     MenuItemSecurityGroups = new List<MenuItemSecurityGroup>()
@@ -452,7 +452,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Application settings",
                             MenuItemId = MenuTemplateIds.ApplicationSettings,
                             Language = LanguageNames.English,
-                            LocaleName = LocaleNames.English,
+                            LocaleName = LocaleNames.English
                         },
                         new MenuItemTranslation
                         {
@@ -460,7 +460,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Applikationsindstillinger",
                             MenuItemId = MenuTemplateIds.ApplicationSettings,
                             Language = LanguageNames.Danish,
-                            LocaleName = LocaleNames.Danish,
+                            LocaleName = LocaleNames.Danish
                         },
                         new MenuItemTranslation
                         {
@@ -468,7 +468,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Anwendungseinstellungen",
                             MenuItemId = MenuTemplateIds.ApplicationSettings,
                             Language = LanguageNames.German,
-                            LocaleName = LocaleNames.German,
+                            LocaleName = LocaleNames.German
                         },
                         new MenuItemTranslation
                         {
@@ -476,7 +476,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Налаштування застосунку",
                             MenuItemId = MenuTemplateIds.ApplicationSettings,
                             Language = LanguageNames.Ukrainian,
-                            LocaleName = LocaleNames.Ukrainian,
+                            LocaleName = LocaleNames.Ukrainian
                         }
                     },
                     MenuItemSecurityGroups = new List<MenuItemSecurityGroup>()
@@ -505,7 +505,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Plugins",
                             MenuItemId = MenuTemplateIds.PluginsSettings,
                             Language = LanguageNames.English,
-                            LocaleName = LocaleNames.English,
+                            LocaleName = LocaleNames.English
                         },
                         new MenuItemTranslation
                         {
@@ -513,7 +513,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Plugins",
                             MenuItemId = MenuTemplateIds.PluginsSettings,
                             Language = LanguageNames.Danish,
-                            LocaleName = LocaleNames.Danish,
+                            LocaleName = LocaleNames.Danish
                         },
                         new MenuItemTranslation
                         {
@@ -521,7 +521,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Plugins",
                             MenuItemId = MenuTemplateIds.PluginsSettings,
                             Language = LanguageNames.German,
-                            LocaleName = LocaleNames.German,
+                            LocaleName = LocaleNames.German
                         },
                         new MenuItemTranslation
                         {
@@ -529,7 +529,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Налаштування плагінів",
                             MenuItemId = MenuTemplateIds.PluginsSettings,
                             Language = LanguageNames.Ukrainian,
-                            LocaleName = LocaleNames.Ukrainian,
+                            LocaleName = LocaleNames.Ukrainian
                         }
                     },
                     MenuItemSecurityGroups = new List<MenuItemSecurityGroup>()
@@ -558,7 +558,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Folders",
                             MenuItemId = MenuTemplateIds.Folders,
                             Language = LanguageNames.English,
-                            LocaleName = LocaleNames.English,
+                            LocaleName = LocaleNames.English
                         },
                         new MenuItemTranslation
                         {
@@ -566,7 +566,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Folders",
                             MenuItemId = MenuTemplateIds.Folders,
                             Language = LanguageNames.Danish,
-                            LocaleName = LocaleNames.Danish,
+                            LocaleName = LocaleNames.Danish
                         },
                         new MenuItemTranslation
                         {
@@ -574,7 +574,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Folders",
                             MenuItemId = MenuTemplateIds.Folders,
                             Language = LanguageNames.German,
-                            LocaleName = LocaleNames.German,
+                            LocaleName = LocaleNames.German
                         },
                         new MenuItemTranslation
                         {
@@ -582,7 +582,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Папки",
                             MenuItemId = MenuTemplateIds.Folders,
                             Language = LanguageNames.Ukrainian,
-                            LocaleName = LocaleNames.Ukrainian,
+                            LocaleName = LocaleNames.Ukrainian
                         }
                     },
                     MenuItemSecurityGroups = new List<MenuItemSecurityGroup>()
@@ -611,7 +611,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Email recipients",
                             MenuItemId = MenuTemplateIds.EmailRecipients,
                             Language = LanguageNames.English,
-                            LocaleName = LocaleNames.English,
+                            LocaleName = LocaleNames.English
                         },
                         new MenuItemTranslation
                         {
@@ -619,7 +619,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "E-mail-modtagere",
                             MenuItemId = MenuTemplateIds.EmailRecipients,
                             Language = LanguageNames.Danish,
-                            LocaleName = LocaleNames.Danish,
+                            LocaleName = LocaleNames.Danish
                         },
                         new MenuItemTranslation
                         {
@@ -627,7 +627,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "E-Mail-Empfänger",
                             MenuItemId = MenuTemplateIds.EmailRecipients,
                             Language = LanguageNames.German,
-                            LocaleName = LocaleNames.German,
+                            LocaleName = LocaleNames.German
                         },
                         new MenuItemTranslation
                         {
@@ -635,7 +635,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             Name = "Email одержувачі",
                             MenuItemId = MenuTemplateIds.EmailRecipients,
                             Language = LanguageNames.Ukrainian,
-                            LocaleName = LocaleNames.Ukrainian,
+                            LocaleName = LocaleNames.Ukrainian
                         }
                     },
                     MenuItemSecurityGroups = new List<MenuItemSecurityGroup>()

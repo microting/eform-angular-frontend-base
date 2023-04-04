@@ -43,7 +43,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Data.Seed.SeedItems
                 Type = x.Type,
                 Position = x.Position,
                 ParentId = x.ParentId,
-                IsInternalLink = true,
+                IsInternalLink = true
             });
 
             modelBuilder.Entity<MenuItem>().HasData(entities);

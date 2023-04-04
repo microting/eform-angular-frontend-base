@@ -205,7 +205,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Data.Seed.SeedItems
             {
                 Id = "PluginStoreSettings:PluginListLink",
                 Value = "https://raw.githubusercontent.com/microting/eform-angular-frontend/master/plugins.json"
-            },
+            }
         };
 
         public static ModelBuilder AddConfigurationDefault(this ModelBuilder modelBuilder)

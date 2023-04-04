@@ -132,14 +132,14 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Data
                 .HasIndex(p => new
                 {
                     p.EformUserId,
-                    p.SecurityGroupId,
+                    p.SecurityGroupId
                 }).IsUnique();
 
             modelBuilder.Entity<GroupPermission>()
                 .HasIndex(p => new
                 {
                     p.PermissionId,
-                    p.SecurityGroupId,
+                    p.SecurityGroupId
                 }).IsUnique();
 
             modelBuilder.Entity<PermissionType>()
@@ -154,14 +154,14 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Data
                 .HasIndex(p => new
                 {
                     p.PermissionId,
-                    p.EformInGroupId,
+                    p.EformInGroupId
                 }).IsUnique();
 
             modelBuilder.Entity<EformInGroup>()
                 .HasIndex(p => new
                 {
                     p.TemplateId,
-                    p.SecurityGroupId,
+                    p.SecurityGroupId
                 }).IsUnique();
 
             modelBuilder.Entity<EformInGroup>()
@@ -178,7 +178,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Data
                 .HasIndex(p => new
                 {
                     p.EformUserId,
-                    p.TagId,
+                    p.TagId
                 }).IsUnique();
 
             // Mailing

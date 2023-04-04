@@ -40,7 +40,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Data.Seed.SeedItems
                 {
                     Id = 27,
                     Name = "Meine eForms",
-                    MenuItemId = MenuTemplateIds.MyEforms,
+                    MenuItemId = MenuTemplateIds.MyEforms
                 },
                 new MenuItemTranslation
                 {
