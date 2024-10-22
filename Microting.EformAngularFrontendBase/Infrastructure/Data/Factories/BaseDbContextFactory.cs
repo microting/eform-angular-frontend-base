@@ -33,7 +33,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Data.Factories
     {
         public BaseDbContext CreateDbContext(string[] args)
         {
-            var defaultCs = "Server = localhost; port = 3306; Database = eform-angular-migration; user = root; Convert Zero Datetime = true;";
+            var defaultCs = "Server = localhost; port = 3306; Database = eform-angular-migration; user = root; password = secretpassword;Convert Zero Datetime = true;";
             var optionsBuilder = new DbContextOptionsBuilder<BaseDbContext>();
             optionsBuilder.UseMySql(args.Any() ? args[0] : defaultCs, new MariaDbServerVersion(
                 ServerVersion.AutoDetect(args.Any() ? args[0] : defaultCs)), mySqlOptionsAction: builder =>
