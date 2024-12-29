@@ -39,6 +39,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Data.Factories
                 ServerVersion.AutoDetect(args.Any() ? args[0] : defaultCs)), mySqlOptionsAction: builder =>
             {
                 builder.EnableRetryOnFailure();
+                builder.TranslateParameterizedCollectionsToConstants();
             });
             return new BaseDbContext(optionsBuilder.Options);
 
