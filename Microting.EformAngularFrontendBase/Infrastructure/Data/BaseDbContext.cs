@@ -270,6 +270,37 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Data
               .HasForeignKey(d => d.ParentId)
               .OnDelete(DeleteBehavior.Cascade);
 
+            // Extended User configuration for OAuth login support
+            modelBuilder.Entity<EformUser>()
+                .Property<string>("GoogleId")
+                .HasColumnType("longtext")
+                .IsRequired(false);
+
+            modelBuilder.Entity<EformUser>()
+                .Property<string>("FacebookId")
+                .HasColumnType("longtext")
+                .IsRequired(false);
+
+            modelBuilder.Entity<EformUser>()
+                .Property<string>("GoogleEmail")
+                .HasColumnType("longtext")
+                .IsRequired(false);
+
+            modelBuilder.Entity<EformUser>()
+                .Property<string>("FacebookEmail")
+                .HasColumnType("longtext")
+                .IsRequired(false);
+
+            modelBuilder.Entity<EformUser>()
+                .Property<bool>("ExternalLoginEnabled")
+                .HasColumnType("tinyint(1)")
+                .HasDefaultValue(true);
+
+            modelBuilder.Entity<EformUser>()
+                .Property<string>("PreferredLoginProvider")
+                .HasColumnType("varchar(50)")
+                .IsRequired(false);
+
             // Seed
             modelBuilder.SeedLatest();
             // Identity
