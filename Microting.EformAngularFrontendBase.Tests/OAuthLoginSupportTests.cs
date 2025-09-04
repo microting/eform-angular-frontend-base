@@ -22,10 +22,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microting.EformAngularFrontendBase.Infrastructure.Data;
+using Microting.EformAngularFrontendBase.Infrastructure.Data.Factories;
 using NUnit.Framework;
 
 namespace Microting.EformAngularFrontendBase.Tests;
@@ -34,14 +34,15 @@ namespace Microting.EformAngularFrontendBase.Tests;
 public class OAuthLoginSupportTests
 {
     private BaseDbContext _context;
+    private BaseDbContextFactory _factory;
 
     [SetUp]
     public void Setup()
     {
-        var options = new DbContextOptionsBuilder<BaseDbContext>()
-            .UseInMemoryDatabase(databaseName: System.Guid.NewGuid().ToString())
-            .Options;
-        _context = new BaseDbContext(options);
+        _factory = new BaseDbContextFactory();
+        // Use test database connection string
+        var testConnectionString = "Server=localhost;port=3306;Database=eform-angular-test;user=root;password=secretpassword;Convert Zero Datetime=true;";
+        _context = _factory.CreateDbContext(new[] { testConnectionString });
     }
 
     [TearDown]
