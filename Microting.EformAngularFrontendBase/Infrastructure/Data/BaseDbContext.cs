@@ -298,6 +298,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Data
 
             modelBuilder.Entity<EformUser>()
                 .Property<string>("PreferredLoginProvider")
+                .HasMaxLength(50)
                 .HasColumnType("varchar(50)")
                 .IsRequired(false);
 
