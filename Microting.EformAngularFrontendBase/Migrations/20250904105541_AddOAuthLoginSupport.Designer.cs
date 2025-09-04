@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Microting.EformAngularFrontendBase.Infrastructure.Data;
 
@@ -11,9 +12,11 @@ using Microting.EformAngularFrontendBase.Infrastructure.Data;
 namespace Microting.EformAngularFrontendBase.Migrations
 {
     [DbContext(typeof(BaseDbContext))]
-    partial class BaseDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250904105541_AddOAuthLoginSupport")]
+    partial class AddOAuthLoginSupport
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -3892,6 +3895,27 @@ namespace Microting.EformAngularFrontendBase.Migrations
                     b.Property<string>("ProfilePictureSnapshot")
                         .HasColumnType("longtext");
 
+                    b.Property<string>("GoogleId")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("FacebookId")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("GoogleEmail")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("FacebookEmail")
+                        .HasColumnType("longtext");
+
+                    b.Property<bool>("ExternalLoginEnabled")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("tinyint(1)")
+                        .HasDefaultValue(true);
+
+                    b.Property<string>("PreferredLoginProvider")
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("longtext");
 
@@ -3921,27 +3945,6 @@ namespace Microting.EformAngularFrontendBase.Migrations
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("tinyint(1)");
-
-                    b.Property<string>("GoogleId")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("FacebookId")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("GoogleEmail")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("FacebookEmail")
-                        .HasColumnType("longtext");
-
-                    b.Property<bool>("ExternalLoginEnabled")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("tinyint(1)")
-                        .HasDefaultValue(true);
-
-                    b.Property<string>("PreferredLoginProvider")
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)");
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
