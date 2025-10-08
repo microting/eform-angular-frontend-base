@@ -33,153 +33,161 @@ namespace Microting.EformAngularFrontendBase.Tests;
 
 [Parallelizable(ParallelScope.Fixtures)]
 [TestFixture]
-public class CasePostRecipientTests : DbTestFixture
+public class CasePostEmailTagTests : DbTestFixture
 {
     [Test]
-    public async Task CasePostRecipient_Create_DoesCreate()
+    public async Task CasePostEmailTag_Create_DoesCreate()
     {
         // Arrange - Create CasePost and EmailTag first
-        var casePost = new CasePost { Name = Guid.NewGuid().ToString() };
+        var casePost = new CasePost
+        {
+            CaseId = 1,
+            PostDate = DateTime.Now,
+            Subject = "Test Subject",
+            Text = "Test Text"
+        };
         DbContext.CasePosts.Add(casePost);
         await DbContext.SaveChangesAsync();
 
-        var emailTag = new EmailTag
-        {
-            Name = Guid.NewGuid().ToString(),
-            Email = $"{Guid.NewGuid()}@test.com"
-        };
+        var emailTag = new EmailTag { Name = Guid.NewGuid().ToString() };
         DbContext.EmailTags.Add(emailTag);
         await DbContext.SaveChangesAsync();
 
-        var casePostRecipient = new CasePostRecipient
+        var casePostEmailTag = new CasePostEmailTag
         {
             CasePostId = casePost.Id,
             EmailTagId = emailTag.Id
         };
 
         // Act
-        DbContext.CasePostRecipients.Add(casePostRecipient);
+        DbContext.CasePostEmailTags.Add(casePostEmailTag);
         await DbContext.SaveChangesAsync();
 
-        var dbCasePostRecipient = await DbContext.CasePostRecipients.AsNoTracking().FirstAsync();
+        var dbCasePostEmailTag = await DbContext.CasePostEmailTags.AsNoTracking().FirstAsync();
 
         // Assert
-        Assert.That(dbCasePostRecipient, Is.Not.Null);
-        Assert.That(dbCasePostRecipient.Id, Is.EqualTo(casePostRecipient.Id));
-        Assert.That(dbCasePostRecipient.CasePostId, Is.EqualTo(casePost.Id));
-        Assert.That(dbCasePostRecipient.EmailTagId, Is.EqualTo(emailTag.Id));
+        Assert.That(dbCasePostEmailTag, Is.Not.Null);
+        Assert.That(dbCasePostEmailTag.Id, Is.EqualTo(casePostEmailTag.Id));
+        Assert.That(dbCasePostEmailTag.CasePostId, Is.EqualTo(casePost.Id));
+        Assert.That(dbCasePostEmailTag.EmailTagId, Is.EqualTo(emailTag.Id));
     }
 
     [Test]
-    public async Task CasePostRecipient_Update_DoesUpdate()
+    public async Task CasePostEmailTag_Update_DoesUpdate()
     {
         // Arrange - Create CasePost and EmailTag first
-        var casePost1 = new CasePost { Name = Guid.NewGuid().ToString() };
-        var casePost2 = new CasePost { Name = Guid.NewGuid().ToString() };
-        DbContext.CasePosts.AddRange(casePost1, casePost2);
-        await DbContext.SaveChangesAsync();
-
-        var emailTag = new EmailTag
+        var casePost = new CasePost
         {
-            Name = Guid.NewGuid().ToString(),
-            Email = $"{Guid.NewGuid()}@test.com"
+            CaseId = 1,
+            PostDate = DateTime.Now,
+            Subject = "Test Subject",
+            Text = "Test Text"
         };
-        DbContext.EmailTags.Add(emailTag);
-        await DbContext.SaveChangesAsync();
-
-        var casePostRecipient = new CasePostRecipient
-        {
-            CasePostId = casePost1.Id,
-            EmailTagId = emailTag.Id
-        };
-
-        DbContext.CasePostRecipients.Add(casePostRecipient);
-        await DbContext.SaveChangesAsync();
-
-        // Act
-        casePostRecipient.CasePostId = casePost2.Id;
-        await DbContext.SaveChangesAsync();
-
-        var dbCasePostRecipient = await DbContext.CasePostRecipients.AsNoTracking().FirstAsync();
-
-        // Assert
-        Assert.That(dbCasePostRecipient, Is.Not.Null);
-        Assert.That(dbCasePostRecipient.Id, Is.EqualTo(casePostRecipient.Id));
-        Assert.That(dbCasePostRecipient.CasePostId, Is.EqualTo(casePost2.Id));
-    }
-
-    [Test]
-    public async Task CasePostRecipient_Delete_DoesDelete()
-    {
-        // Arrange - Create CasePost and EmailTag first
-        var casePost = new CasePost { Name = Guid.NewGuid().ToString() };
         DbContext.CasePosts.Add(casePost);
         await DbContext.SaveChangesAsync();
 
-        var emailTag = new EmailTag
+        var emailTag1 = new EmailTag { Name = Guid.NewGuid().ToString() };
+        var emailTag2 = new EmailTag { Name = Guid.NewGuid().ToString() };
+        DbContext.EmailTags.AddRange(emailTag1, emailTag2);
+        await DbContext.SaveChangesAsync();
+
+        var casePostEmailTag = new CasePostEmailTag
         {
-            Name = Guid.NewGuid().ToString(),
-            Email = $"{Guid.NewGuid()}@test.com"
+            CasePostId = casePost.Id,
+            EmailTagId = emailTag1.Id
         };
+
+        DbContext.CasePostEmailTags.Add(casePostEmailTag);
+        await DbContext.SaveChangesAsync();
+
+        // Act
+        casePostEmailTag.EmailTagId = emailTag2.Id;
+        await DbContext.SaveChangesAsync();
+
+        var dbCasePostEmailTag = await DbContext.CasePostEmailTags.AsNoTracking().FirstAsync();
+
+        // Assert
+        Assert.That(dbCasePostEmailTag, Is.Not.Null);
+        Assert.That(dbCasePostEmailTag.Id, Is.EqualTo(casePostEmailTag.Id));
+        Assert.That(dbCasePostEmailTag.EmailTagId, Is.EqualTo(emailTag2.Id));
+    }
+
+    [Test]
+    public async Task CasePostEmailTag_Delete_DoesDelete()
+    {
+        // Arrange - Create CasePost and EmailTag first
+        var casePost = new CasePost
+        {
+            CaseId = 1,
+            PostDate = DateTime.Now,
+            Subject = "Test Subject",
+            Text = "Test Text"
+        };
+        DbContext.CasePosts.Add(casePost);
+        await DbContext.SaveChangesAsync();
+
+        var emailTag = new EmailTag { Name = Guid.NewGuid().ToString() };
         DbContext.EmailTags.Add(emailTag);
         await DbContext.SaveChangesAsync();
 
-        var casePostRecipient = new CasePostRecipient
+        var casePostEmailTag = new CasePostEmailTag
         {
             CasePostId = casePost.Id,
             EmailTagId = emailTag.Id
         };
 
-        DbContext.CasePostRecipients.Add(casePostRecipient);
+        DbContext.CasePostEmailTags.Add(casePostEmailTag);
         await DbContext.SaveChangesAsync();
 
         // Act
-        DbContext.CasePostRecipients.Remove(casePostRecipient);
+        DbContext.CasePostEmailTags.Remove(casePostEmailTag);
         await DbContext.SaveChangesAsync();
 
-        var dbCasePostRecipients = await DbContext.CasePostRecipients.AsNoTracking().ToListAsync();
+        var dbCasePostEmailTags = await DbContext.CasePostEmailTags.AsNoTracking().ToListAsync();
 
         // Assert
-        Assert.That(dbCasePostRecipients.Count, Is.EqualTo(0));
+        Assert.That(dbCasePostEmailTags.Count, Is.EqualTo(0));
     }
 
     [Test]
-    public async Task CasePostRecipient_AsNoTracking_ReturnsCorrectValues()
+    public async Task CasePostEmailTag_AsNoTracking_ReturnsCorrectValues()
     {
         // Arrange - Create CasePost and EmailTag first
-        var casePost = new CasePost { Name = Guid.NewGuid().ToString() };
+        var casePost = new CasePost
+        {
+            CaseId = 1,
+            PostDate = DateTime.Now,
+            Subject = "Test Subject",
+            Text = "Test Text"
+        };
         DbContext.CasePosts.Add(casePost);
         await DbContext.SaveChangesAsync();
 
-        var emailTag = new EmailTag
-        {
-            Name = Guid.NewGuid().ToString(),
-            Email = $"{Guid.NewGuid()}@test.com"
-        };
+        var emailTag = new EmailTag { Name = Guid.NewGuid().ToString() };
         DbContext.EmailTags.Add(emailTag);
         await DbContext.SaveChangesAsync();
 
-        var casePostRecipient = new CasePostRecipient
+        var casePostEmailTag = new CasePostEmailTag
         {
             CasePostId = casePost.Id,
             EmailTagId = emailTag.Id
         };
 
-        DbContext.CasePostRecipients.Add(casePostRecipient);
+        DbContext.CasePostEmailTags.Add(casePostEmailTag);
         await DbContext.SaveChangesAsync();
         
-        var expectedId = casePostRecipient.Id;
+        var expectedId = casePostEmailTag.Id;
 
         // Act
         await using var newContext = GetContext(ConnectionString);
-        var dbCasePostRecipient = await newContext.CasePostRecipients.AsNoTracking()
-            .FirstOrDefaultAsync(etr => etr.CasePostId == casePost.Id && etr.EmailTagId == emailTag.Id);
+        var dbCasePostEmailTag = await newContext.CasePostEmailTags.AsNoTracking()
+            .FirstOrDefaultAsync(cpet => cpet.CasePostId == casePost.Id && cpet.EmailTagId == emailTag.Id);
 
         // Assert
-        Assert.That(dbCasePostRecipient, Is.Not.Null);
-        Assert.That(dbCasePostRecipient.Id, Is.EqualTo(expectedId));
-        Assert.That(dbCasePostRecipient.CasePostId, Is.EqualTo(casePost.Id));
-        Assert.That(dbCasePostRecipient.EmailTagId, Is.EqualTo(emailTag.Id));
+        Assert.That(dbCasePostEmailTag, Is.Not.Null);
+        Assert.That(dbCasePostEmailTag.Id, Is.EqualTo(expectedId));
+        Assert.That(dbCasePostEmailTag.CasePostId, Is.EqualTo(casePost.Id));
+        Assert.That(dbCasePostEmailTag.EmailTagId, Is.EqualTo(emailTag.Id));
     }
     
     private BaseDbContext GetContext(string connectionStr)
