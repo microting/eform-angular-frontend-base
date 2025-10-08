@@ -28,6 +28,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microting.EformAngularFrontendBase.Infrastructure.Data;
 using Microting.EformAngularFrontendBase.Infrastructure.Data.Entities;
+using Microting.eFormApi.BasePn.Infrastructure.Database.Entities;
 using NUnit.Framework;
 
 namespace Microting.EformAngularFrontendBase.Tests;
@@ -39,12 +40,22 @@ public class SavedTagTests : DbTestFixture
     [Test]
     public async Task SavedTag_Create_DoesCreate()
     {
-        // Arrange
+        // Arrange - Create EformUser first
+        var eformUser = new EformUser
+        {
+            UserName = $"user_{Guid.NewGuid()}@test.com",
+            Email = $"user_{Guid.NewGuid()}@test.com",
+            FirstName = "Test",
+            LastName = "User"
+        };
+        DbContext.Users.Add(eformUser);
+        await DbContext.SaveChangesAsync();
+
         var savedTag = new SavedTag
         {
             TagId = 1,
             TagName = Guid.NewGuid().ToString(),
-            EformUserId = 1
+            EformUserId = eformUser.Id
         };
 
         // Act
@@ -65,12 +76,22 @@ public class SavedTagTests : DbTestFixture
     [Test]
     public async Task SavedTag_Update_DoesUpdate()
     {
-        // Arrange
+        // Arrange - Create EformUser first
+        var eformUser = new EformUser
+        {
+            UserName = $"user_{Guid.NewGuid()}@test.com",
+            Email = $"user_{Guid.NewGuid()}@test.com",
+            FirstName = "Test",
+            LastName = "User"
+        };
+        DbContext.Users.Add(eformUser);
+        await DbContext.SaveChangesAsync();
+
         var savedTag = new SavedTag
         {
             TagId = 1,
             TagName = Guid.NewGuid().ToString(),
-            EformUserId = 1
+            EformUserId = eformUser.Id
         };
 
         DbContext.SavedTags.Add(savedTag);
@@ -98,12 +119,22 @@ public class SavedTagTests : DbTestFixture
     [Test]
     public async Task SavedTag_Delete_DoesDelete()
     {
-        // Arrange
+        // Arrange - Create EformUser first
+        var eformUser = new EformUser
+        {
+            UserName = $"user_{Guid.NewGuid()}@test.com",
+            Email = $"user_{Guid.NewGuid()}@test.com",
+            FirstName = "Test",
+            LastName = "User"
+        };
+        DbContext.Users.Add(eformUser);
+        await DbContext.SaveChangesAsync();
+
         var savedTag = new SavedTag
         {
             TagId = 1,
             TagName = Guid.NewGuid().ToString(),
-            EformUserId = 1
+            EformUserId = eformUser.Id
         };
 
         DbContext.SavedTags.Add(savedTag);
@@ -122,12 +153,22 @@ public class SavedTagTests : DbTestFixture
     [Test]
     public async Task SavedTag_AsNoTracking_ReturnsCorrectValues()
     {
-        // Arrange
+        // Arrange - Create EformUser first
+        var eformUser = new EformUser
+        {
+            UserName = $"user_{Guid.NewGuid()}@test.com",
+            Email = $"user_{Guid.NewGuid()}@test.com",
+            FirstName = "Test",
+            LastName = "User"
+        };
+        DbContext.Users.Add(eformUser);
+        await DbContext.SaveChangesAsync();
+
         var savedTag = new SavedTag
         {
             TagId = 1,
             TagName = Guid.NewGuid().ToString(),
-            EformUserId = 1
+            EformUserId = eformUser.Id
         };
 
         DbContext.SavedTags.Add(savedTag);

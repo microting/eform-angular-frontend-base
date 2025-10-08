@@ -112,7 +112,8 @@ public abstract class DbTestFixture
             "PermissionTypes",
             "SavedTags",
             "EformPlugins",
-            "ConfigurationValues"
+            "ConfigurationValues",
+            "AspNetUsers"
         };
 
         foreach (var tableName in tableNames)
