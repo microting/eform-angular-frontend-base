@@ -53,5 +53,6 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Data.Entities.Menu
         /// default value - true
         /// </summary>
         public bool IsInternalLink { get; set; } = true;
+        public string IconName { get; set; }
     }
 }
