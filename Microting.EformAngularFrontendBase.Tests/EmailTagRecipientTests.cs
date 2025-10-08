@@ -96,11 +96,14 @@ public class EmailTagRecipientTests : DbTestFixture
         DbContext.EmailTagRecipients.Add(emailTagRecipient);
         await DbContext.SaveChangesAsync();
 
+        var emailTagRecipientId = emailTagRecipient.Id;
+
         // Act
         emailTagRecipient.EmailTagId = emailTag2.Id;
         await DbContext.SaveChangesAsync();
 
-        var dbEmailTagRecipient = await DbContext.EmailTagRecipients.AsNoTracking().FirstAsync();
+        var dbEmailTagRecipient = await DbContext.EmailTagRecipients.AsNoTracking()
+            .FirstAsync(etr => etr.Id == emailTagRecipientId);
 
         // Assert
         Assert.That(dbEmailTagRecipient, Is.Not.Null);

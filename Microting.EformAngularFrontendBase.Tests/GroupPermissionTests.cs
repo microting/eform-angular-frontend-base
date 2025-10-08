@@ -111,11 +111,14 @@ public class GroupPermissionTests : DbTestFixture
         DbContext.GroupPermissions.Add(groupPermission);
         await DbContext.SaveChangesAsync();
 
+        var groupPermissionId = groupPermission.Id;
+
         // Act
         groupPermission.PermissionId = permission2.Id;
         await DbContext.SaveChangesAsync();
 
-        var dbGroupPermission = await DbContext.GroupPermissions.AsNoTracking().FirstAsync();
+        var dbGroupPermission = await DbContext.GroupPermissions.AsNoTracking()
+            .FirstAsync(gp => gp.Id == groupPermissionId);
 
         // Assert
         Assert.That(dbGroupPermission, Is.Not.Null);

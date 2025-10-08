@@ -92,12 +92,15 @@ public class EformReportDataItemTests : DbTestFixture
         DbContext.EformReportDataItems.Add(eformReportDataItem);
         await DbContext.SaveChangesAsync();
 
+        var eformReportDataItemId = eformReportDataItem.Id;
+
         // Act
         eformReportDataItem.Position = 5;
         eformReportDataItem.Visibility = false;
         await DbContext.SaveChangesAsync();
 
-        var dbEformReportDataItem = await DbContext.EformReportDataItems.AsNoTracking().FirstAsync();
+        var dbEformReportDataItem = await DbContext.EformReportDataItems.AsNoTracking()
+            .FirstAsync(di => di.Id == eformReportDataItemId);
 
         // Assert
         Assert.That(dbEformReportDataItem, Is.Not.Null);

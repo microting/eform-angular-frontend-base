@@ -71,12 +71,14 @@ public class EmailTagTests : DbTestFixture
         await DbContext.SaveChangesAsync();
 
         var oldName = emailTag.Name;
+        var emailTagId = emailTag.Id;
 
         // Act
         emailTag.Name = Guid.NewGuid().ToString();
         await DbContext.SaveChangesAsync();
 
-        var dbEmailTag = await DbContext.EmailTags.AsNoTracking().FirstAsync();
+        var dbEmailTag = await DbContext.EmailTags.AsNoTracking()
+            .FirstAsync(et => et.Id == emailTagId);
 
         // Assert
         Assert.That(dbEmailTag, Is.Not.Null);

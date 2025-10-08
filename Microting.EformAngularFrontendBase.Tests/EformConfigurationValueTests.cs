@@ -71,12 +71,14 @@ public class EformConfigurationValueTests : DbTestFixture
         await DbContext.SaveChangesAsync();
 
         var oldValue = configValue.Value;
+        var configValueId = configValue.Id;
 
         // Act
         configValue.Value = "Updated Value";
         await DbContext.SaveChangesAsync();
 
-        var dbConfigValue = await DbContext.ConfigurationValues.AsNoTracking().FirstAsync();
+        var dbConfigValue = await DbContext.ConfigurationValues.AsNoTracking()
+            .FirstAsync(cv => cv.Id == configValueId);
 
         // Assert
         Assert.That(dbConfigValue, Is.Not.Null);

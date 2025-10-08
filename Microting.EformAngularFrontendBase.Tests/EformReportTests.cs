@@ -84,6 +84,7 @@ public class EformReportTests : DbTestFixture
         await DbContext.SaveChangesAsync();
 
         var oldDescription = eformReport.Description;
+        var eformReportId = eformReport.Id;
 
         // Act
         eformReport.Description = "Updated Report";
@@ -91,7 +92,8 @@ public class EformReportTests : DbTestFixture
         eformReport.HeaderVisibility = "hidden";
         await DbContext.SaveChangesAsync();
 
-        var dbEformReport = await DbContext.EformReports.AsNoTracking().FirstAsync();
+        var dbEformReport = await DbContext.EformReports.AsNoTracking()
+            .FirstAsync(er => er.Id == eformReportId);
 
         // Assert
         Assert.That(dbEformReport, Is.Not.Null);

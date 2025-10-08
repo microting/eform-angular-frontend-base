@@ -83,6 +83,7 @@ public class CasePostTests : DbTestFixture
         await DbContext.SaveChangesAsync();
 
         var oldSubject = casePost.Subject;
+        var casePostId = casePost.Id;
 
         // Act
         casePost.Subject = "Updated Subject";
@@ -90,7 +91,8 @@ public class CasePostTests : DbTestFixture
         casePost.LinkToCase = false;
         await DbContext.SaveChangesAsync();
 
-        var dbCasePost = await DbContext.CasePosts.AsNoTracking().FirstAsync();
+        var dbCasePost = await DbContext.CasePosts.AsNoTracking()
+            .FirstAsync(cp => cp.Id == casePostId);
 
         // Assert
         Assert.That(dbCasePost, Is.Not.Null);

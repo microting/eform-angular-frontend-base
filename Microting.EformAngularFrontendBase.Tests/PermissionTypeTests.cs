@@ -71,12 +71,14 @@ public class PermissionTypeTests : DbTestFixture
         await DbContext.SaveChangesAsync();
 
         var oldName = permissionType.Name;
+        var permissionTypeId = permissionType.Id;
 
         // Act
         permissionType.Name = Guid.NewGuid().ToString();
         await DbContext.SaveChangesAsync();
 
-        var dbPermissionType = await DbContext.PermissionTypes.AsNoTracking().FirstAsync();
+        var dbPermissionType = await DbContext.PermissionTypes.AsNoTracking()
+            .FirstAsync(pt => pt.Id == permissionTypeId);
 
         // Assert
         Assert.That(dbPermissionType, Is.Not.Null);

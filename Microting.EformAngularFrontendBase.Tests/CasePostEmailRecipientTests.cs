@@ -112,11 +112,14 @@ public class CasePostEmailRecipientTests : DbTestFixture
         DbContext.CasePostEmailRecipients.Add(casePostEmailRecipient);
         await DbContext.SaveChangesAsync();
 
+        var casePostEmailRecipientId = casePostEmailRecipient.Id;
+
         // Act
         casePostEmailRecipient.EmailRecipientId = emailRecipient2.Id;
         await DbContext.SaveChangesAsync();
 
-        var dbCasePostEmailRecipient = await DbContext.CasePostEmailRecipients.AsNoTracking().FirstAsync();
+        var dbCasePostEmailRecipient = await DbContext.CasePostEmailRecipients.AsNoTracking()
+            .FirstAsync(cper => cper.Id == casePostEmailRecipientId);
 
         // Assert
         Assert.That(dbCasePostEmailRecipient, Is.Not.Null);

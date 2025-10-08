@@ -83,13 +83,15 @@ public class PermissionTests : DbTestFixture
         await DbContext.SaveChangesAsync();
 
         var oldName = permission.PermissionName;
+        var permissionId = permission.Id;
 
         // Act
         permission.PermissionName = Guid.NewGuid().ToString();
         permission.ClaimName = "updated_claim";
         await DbContext.SaveChangesAsync();
 
-        var dbPermission = await DbContext.Permissions.AsNoTracking().FirstAsync();
+        var dbPermission = await DbContext.Permissions.AsNoTracking()
+            .FirstAsync(p => p.Id == permissionId);
 
         // Assert
         Assert.That(dbPermission, Is.Not.Null);

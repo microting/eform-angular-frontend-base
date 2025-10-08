@@ -80,12 +80,14 @@ public class EformReportElementTests : DbTestFixture
         await DbContext.SaveChangesAsync();
 
         var oldElementId = eformReportElement.ElementId;
+        var eformReportElementId = eformReportElement.Id;
 
         // Act
         eformReportElement.ElementId = 2;
         await DbContext.SaveChangesAsync();
 
-        var dbEformReportElement = await DbContext.EformReportElements.AsNoTracking().FirstAsync();
+        var dbEformReportElement = await DbContext.EformReportElements.AsNoTracking()
+            .FirstAsync(ere => ere.Id == eformReportElementId);
 
         // Assert
         Assert.That(dbEformReportElement, Is.Not.Null);

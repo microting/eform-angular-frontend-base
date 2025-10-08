@@ -80,6 +80,7 @@ public class MenuItemTests : DbTestFixture
         await DbContext.SaveChangesAsync();
 
         var oldName = menuItem.Name;
+        var menuItemId = menuItem.Id;
 
         // Act
         menuItem.Name = Guid.NewGuid().ToString();
@@ -87,7 +88,8 @@ public class MenuItemTests : DbTestFixture
         menuItem.Position = 2;
         await DbContext.SaveChangesAsync();
 
-        var dbMenuItem = await DbContext.MenuItems.AsNoTracking().FirstAsync();
+        var dbMenuItem = await DbContext.MenuItems.AsNoTracking()
+            .FirstAsync(mi => mi.Id == menuItemId);
 
         // Assert
         Assert.That(dbMenuItem, Is.Not.Null);

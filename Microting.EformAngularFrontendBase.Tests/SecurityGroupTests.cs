@@ -72,13 +72,15 @@ public class SecurityGroupTests : DbTestFixture
         await DbContext.SaveChangesAsync();
 
         var oldName = securityGroup.Name;
+        var securityGroupId = securityGroup.Id;
 
         // Act
         securityGroup.Name = Guid.NewGuid().ToString();
         securityGroup.RedirectLink = "/home";
         await DbContext.SaveChangesAsync();
 
-        var dbSecurityGroup = await DbContext.SecurityGroups.AsNoTracking().FirstAsync();
+        var dbSecurityGroup = await DbContext.SecurityGroups.AsNoTracking()
+            .FirstAsync(sg => sg.Id == securityGroupId);
 
         // Assert
         Assert.That(dbSecurityGroup, Is.Not.Null);

@@ -72,13 +72,15 @@ public class EmailRecipientTests : DbTestFixture
         await DbContext.SaveChangesAsync();
 
         var oldName = emailRecipient.Name;
+        var emailRecipientId = emailRecipient.Id;
 
         // Act
         emailRecipient.Name = Guid.NewGuid().ToString();
         emailRecipient.Email = $"{Guid.NewGuid()}@updated.com";
         await DbContext.SaveChangesAsync();
 
-        var dbEmailRecipient = await DbContext.EmailRecipients.AsNoTracking().FirstAsync();
+        var dbEmailRecipient = await DbContext.EmailRecipients.AsNoTracking()
+            .FirstAsync(er => er.Id == emailRecipientId);
 
         // Assert
         Assert.That(dbEmailRecipient, Is.Not.Null);

@@ -77,13 +77,15 @@ public class MenuTemplateTests : DbTestFixture
         await DbContext.SaveChangesAsync();
 
         var oldName = menuTemplate.Name;
+        var menuTemplateId = menuTemplate.Id;
 
         // Act
         menuTemplate.Name = Guid.NewGuid().ToString();
         menuTemplate.DefaultLink = "/updated";
         await DbContext.SaveChangesAsync();
 
-        var dbMenuTemplate = await DbContext.MenuTemplates.AsNoTracking().FirstAsync();
+        var dbMenuTemplate = await DbContext.MenuTemplates.AsNoTracking()
+            .FirstAsync(mt => mt.Id == menuTemplateId);
 
         // Assert
         Assert.That(dbMenuTemplate, Is.Not.Null);

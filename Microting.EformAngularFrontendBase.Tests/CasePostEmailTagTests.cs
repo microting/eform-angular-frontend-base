@@ -100,11 +100,14 @@ public class CasePostEmailTagTests : DbTestFixture
         DbContext.CasePostEmailTags.Add(casePostEmailTag);
         await DbContext.SaveChangesAsync();
 
+        var casePostEmailTagId = casePostEmailTag.Id;
+
         // Act
         casePostEmailTag.EmailTagId = emailTag2.Id;
         await DbContext.SaveChangesAsync();
 
-        var dbCasePostEmailTag = await DbContext.CasePostEmailTags.AsNoTracking().FirstAsync();
+        var dbCasePostEmailTag = await DbContext.CasePostEmailTags.AsNoTracking()
+            .FirstAsync(cpet => cpet.Id == casePostEmailTagId);
 
         // Assert
         Assert.That(dbCasePostEmailTag, Is.Not.Null);

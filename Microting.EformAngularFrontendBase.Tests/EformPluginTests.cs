@@ -75,13 +75,15 @@ public class EformPluginTests : DbTestFixture
         await DbContext.SaveChangesAsync();
 
         var oldPluginId = eformPlugin.PluginId;
+        var eformPluginId = eformPlugin.Id;
 
         // Act
         eformPlugin.PluginId = Guid.NewGuid().ToString();
         eformPlugin.Status = 2;
         await DbContext.SaveChangesAsync();
 
-        var dbEformPlugin = await DbContext.EformPlugins.AsNoTracking().FirstAsync();
+        var dbEformPlugin = await DbContext.EformPlugins.AsNoTracking()
+            .FirstAsync(ep => ep.Id == eformPluginId);
 
         // Assert
         Assert.That(dbEformPlugin, Is.Not.Null);

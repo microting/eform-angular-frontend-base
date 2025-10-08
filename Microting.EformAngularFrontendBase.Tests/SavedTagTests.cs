@@ -77,13 +77,15 @@ public class SavedTagTests : DbTestFixture
         await DbContext.SaveChangesAsync();
 
         var oldTagName = savedTag.TagName;
+        var savedTagId = savedTag.Id;
 
         // Act
         savedTag.TagName = Guid.NewGuid().ToString();
         savedTag.TagId = 2;
         await DbContext.SaveChangesAsync();
 
-        var dbSavedTag = await DbContext.SavedTags.AsNoTracking().FirstAsync();
+        var dbSavedTag = await DbContext.SavedTags.AsNoTracking()
+            .FirstAsync(st => st.Id == savedTagId);
 
         // Assert
         Assert.That(dbSavedTag, Is.Not.Null);

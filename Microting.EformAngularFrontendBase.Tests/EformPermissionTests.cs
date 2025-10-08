@@ -119,11 +119,14 @@ public class EformPermissionTests : DbTestFixture
         DbContext.EformPermissions.Add(eformPermission);
         await DbContext.SaveChangesAsync();
 
+        var eformPermissionId = eformPermission.Id;
+
         // Act
         eformPermission.PermissionId = permission2.Id;
         await DbContext.SaveChangesAsync();
 
-        var dbEformPermission = await DbContext.EformPermissions.AsNoTracking().FirstAsync();
+        var dbEformPermission = await DbContext.EformPermissions.AsNoTracking()
+            .FirstAsync(ep => ep.Id == eformPermissionId);
 
         // Assert
         Assert.That(dbEformPermission, Is.Not.Null);

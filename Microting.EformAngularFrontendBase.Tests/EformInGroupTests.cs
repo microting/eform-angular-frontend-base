@@ -79,11 +79,14 @@ public class EformInGroupTests : DbTestFixture
         DbContext.EformInGroups.Add(eformInGroup);
         await DbContext.SaveChangesAsync();
 
+        var eformInGroupId = eformInGroup.Id;
+
         // Act
         eformInGroup.TemplateId = 2;
         await DbContext.SaveChangesAsync();
 
-        var dbEformInGroup = await DbContext.EformInGroups.AsNoTracking().FirstAsync();
+        var dbEformInGroup = await DbContext.EformInGroups.AsNoTracking()
+            .FirstAsync(eig => eig.Id == eformInGroupId);
 
         // Assert
         Assert.That(dbEformInGroup, Is.Not.Null);
