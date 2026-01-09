@@ -303,11 +303,51 @@
                         },
                         new PluginMenuItemModel
                         {
+                            Name = "Open source licenses",
+                            E2EId = "open-source-licenses",
+                            Link = "/open-source-licenses",
+                            Position = 5,
+                            Type = MenuItemTypeEnum.Link,
+                            MenuTemplate = new PluginMenuTemplateModel
+                            {
+                                DefaultLink = "/open-source-licenses",
+                                E2EId = "open-source-licenses"
+                                },
+                            Translations = new List<PluginMenuTranslationModel>
+                            {
+                                new PluginMenuTranslationModel
+                                {
+                                    Name = "Open source licenses",
+                                    LocaleName = LocaleNames.English,
+                                    Language = LanguageNames.English
+                                    },
+                                new PluginMenuTranslationModel
+                                {
+                                    Name = "Open source licenser",
+                                    LocaleName = LocaleNames.Danish,
+                                    Language = LanguageNames.Danish
+                                    },
+                                new PluginMenuTranslationModel
+                                {
+                                    Name = "Open-Source-Lizenzen",
+                                    LocaleName = LocaleNames.German,
+                                    Language = LanguageNames.German
+                                    },
+                                new PluginMenuTranslationModel
+                                {
+                                    Name = "Ліцензії з відкритим вихідним кодом",
+                                    LocaleName = LocaleNames.Ukrainian,
+                                    Language = LanguageNames.Ukrainian
+                                    }
+                            }
+                        },
+                        new PluginMenuItemModel
+                        {
                             E2EId = "sign-out",
                             Name = "Logout",
                             Type = MenuItemTypeEnum.Link,
                             Link = "/auth/sign-out",
-                            Position = 5,
+                            Position = 6,
                             MenuTemplate = new PluginMenuTemplateModel
                             {
                                 DefaultLink = "/auth/sign-out",
