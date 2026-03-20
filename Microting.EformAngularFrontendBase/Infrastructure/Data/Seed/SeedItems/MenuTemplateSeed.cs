@@ -116,6 +116,13 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Data.Seed.SeedItems
                     Name = "Email recipients",
                     E2EId = "email-recipients",
                     DefaultLink = "/email-recipients"
+                },
+                new MenuTemplate
+                {
+                    Id = MenuTemplateIds.CmsManager,
+                    Name = "CMS",
+                    E2EId = "cms",
+                    DefaultLink = "/cms"
                 }
             );
             return modelBuilder;

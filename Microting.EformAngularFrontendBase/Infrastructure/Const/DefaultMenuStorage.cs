@@ -645,6 +645,59 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Const
                             SecurityGroupId = 1
                         }
                     }
+                },
+                new MenuItem
+                {
+                    Id = 13,
+                    Name = "CMS",
+                    Link = "/cms",
+                    E2EId = "cms",
+                    MenuTemplateId = MenuTemplateIds.CmsManager,
+                    Type = MenuItemTypeEnum.Link,
+                    Position = 9,
+                    ParentId = 3,
+                    Translations = new List<MenuItemTranslation>
+                    {
+                        new MenuItemTranslation
+                        {
+                            Id = 51,
+                            Name = "CMS",
+                            MenuItemId = MenuTemplateIds.CmsManager,
+                            Language = LanguageNames.English,
+                            LocaleName = LocaleNames.English
+                        },
+                        new MenuItemTranslation
+                        {
+                            Id = 52,
+                            Name = "CMS",
+                            MenuItemId = MenuTemplateIds.CmsManager,
+                            Language = LanguageNames.Danish,
+                            LocaleName = LocaleNames.Danish
+                        },
+                        new MenuItemTranslation
+                        {
+                            Id = 53,
+                            Name = "CMS",
+                            MenuItemId = MenuTemplateIds.CmsManager,
+                            Language = LanguageNames.German,
+                            LocaleName = LocaleNames.German
+                        },
+                        new MenuItemTranslation
+                        {
+                            Id = 54,
+                            Name = "CMS",
+                            MenuItemId = MenuTemplateIds.CmsManager,
+                            Language = LanguageNames.Ukrainian,
+                            LocaleName = LocaleNames.Ukrainian
+                        }
+                    },
+                    MenuItemSecurityGroups = new List<MenuItemSecurityGroup>()
+                    {
+                        new MenuItemSecurityGroup()
+                        {
+                            SecurityGroupId = 1
+                        }
+                    }
                 }
             };
         }

@@ -27,6 +27,7 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Data
     using eFormApi.BasePn.Infrastructure.Database.Entities;
     using eFormApi.BasePn.Infrastructure.Database.Extensions;
     using Entities;
+    using Entities.Cms;
     using Entities.Mailing;
     using Entities.Menu;
     using Entities.Permissions;
@@ -48,6 +49,12 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Data
         public BaseDbContext(DbContextOptions<BaseDbContext> options) : base(options)
         {
         }
+
+        // CMS
+        public DbSet<CmsPage> CmsPages { get; set; }
+        public DbSet<CmsMenu> CmsMenus { get; set; }
+        public DbSet<CmsMenuItem> CmsMenuItems { get; set; }
+        public DbSet<CmsSettings> CmsSettings { get; set; }
 
         // Common
         public DbSet<SavedTag> SavedTags { get; set; }
@@ -301,6 +308,39 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Data
                 .HasMaxLength(50)
                 .HasColumnType("varchar(50)")
                 .IsRequired(false);
+
+            // CMS
+            modelBuilder.Entity<CmsPage>()
+                .HasIndex(p => p.Slug)
+                .IsUnique();
+
+            modelBuilder.Entity<CmsPage>()
+                .Property(p => p.Body)
+                .HasColumnType("longtext");
+
+            modelBuilder.Entity<CmsMenuItem>()
+                .HasOne(e => e.Menu)
+                .WithMany(m => m.Items)
+                .HasForeignKey(e => e.CmsMenuId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<CmsMenuItem>()
+                .HasOne(e => e.Parent)
+                .WithMany(p => p.Children)
+                .HasForeignKey(e => e.ParentId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<CmsMenuItem>()
+                .HasOne(e => e.Page)
+                .WithMany()
+                .HasForeignKey(e => e.PageId)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<CmsSettings>()
+                .HasOne(e => e.ActiveMenu)
+                .WithMany()
+                .HasForeignKey(e => e.ActiveMenuId)
+                .OnDelete(DeleteBehavior.SetNull);
 
             // Seed
             modelBuilder.SeedLatest();

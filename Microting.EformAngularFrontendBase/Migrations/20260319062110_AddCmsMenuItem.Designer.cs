@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Microting.EformAngularFrontendBase.Infrastructure.Data;
 
@@ -11,9 +12,11 @@ using Microting.EformAngularFrontendBase.Infrastructure.Data;
 namespace Microting.EformAngularFrontendBase.Migrations
 {
     [DbContext(typeof(BaseDbContext))]
-    partial class BaseDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260319062110_AddCmsMenuItem")]
+    partial class AddCmsMenuItem
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -2565,6 +2568,30 @@ namespace Microting.EformAngularFrontendBase.Migrations
                             LocaleName = "de-DE",
                             MenuTemplateId = 12,
                             Name = "E-Mail-Empfänger"
+                        },
+                        new
+                        {
+                            Id = 37,
+                            Language = "English",
+                            LocaleName = "en-US",
+                            MenuTemplateId = 13,
+                            Name = "CMS"
+                        },
+                        new
+                        {
+                            Id = 38,
+                            Language = "Danish",
+                            LocaleName = "da",
+                            MenuTemplateId = 13,
+                            Name = "CMS"
+                        },
+                        new
+                        {
+                            Id = 39,
+                            Language = "German",
+                            LocaleName = "de-DE",
+                            MenuTemplateId = 13,
+                            Name = "CMS"
                         });
                 });
 

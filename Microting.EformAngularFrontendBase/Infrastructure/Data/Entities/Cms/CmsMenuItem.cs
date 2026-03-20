@@ -1,18 +1,14 @@
-﻿/*
+/*
 The MIT License (MIT)
-
 Copyright (c) 2007 - 2021 Microting A/S
-
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
-
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
-
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -22,22 +18,38 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-namespace Microting.EformAngularFrontendBase.Infrastructure.Const
+namespace Microting.EformAngularFrontendBase.Infrastructure.Data.Entities.Cms
 {
-    public static class MenuTemplateIds
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using eFormApi.BasePn.Infrastructure.Database.Base;
+
+    public class CmsMenuItem : BaseEntity
     {
-        public const int MyEforms = 1;
-        public const int DeviceUsers = 2;
-        public const int Advanced = 3;
-        public const int Sites = 4;
-        public const int Workers = 5;
-        public const int Units = 6;
-        public const int SearchableList = 7;
-        public const int SelectableList = 8;
-        public const int ApplicationSettings = 9;
-        public const int PluginsSettings = 10;
-        public const int Folders = 11;
-        public const int EmailRecipients = 12;
-        public const int CmsManager = 13;
+        public int CmsMenuId { get; set; }
+
+        public int? ParentId { get; set; }
+
+        [Required]
+        [StringLength(300)]
+        public string Title { get; set; }
+
+        public int? PageId { get; set; }
+
+        [StringLength(2000)]
+        public string ExternalUrl { get; set; }
+
+        [StringLength(20)]
+        public string Target { get; set; } = "_self";
+
+        public int Order { get; set; }
+
+        public virtual CmsMenu Menu { get; set; }
+
+        public virtual CmsMenuItem Parent { get; set; }
+
+        public virtual List<CmsMenuItem> Children { get; set; } = new List<CmsMenuItem>();
+
+        public virtual CmsPage Page { get; set; }
     }
 }

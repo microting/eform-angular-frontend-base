@@ -107,6 +107,12 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Data.Seed.SeedItems
                     Id = 24,
                     Name = "E-mail-modtagere",
                     MenuTemplateId = MenuTemplateIds.EmailRecipients
+                },
+                new MenuTemplateTranslation
+                {
+                    Id = 38,
+                    Name = "CMS",
+                    MenuTemplateId = MenuTemplateIds.CmsManager
                 }
             };
 
