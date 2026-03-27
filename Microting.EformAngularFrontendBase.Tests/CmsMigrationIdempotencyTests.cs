@@ -179,4 +179,77 @@ public class CmsMigrationIdempotencyTests : DbTestFixture
 
         Assert.That(cmsTemplateTranslations.Count, Is.EqualTo(3));
     }
+
+    [Test]
+    public async Task Migration_RunTwice_DoesNotDuplicateOrError()
+    {
+        // Arrange — migration already ran once in Setup()
+        var cmsMenuItem = await DbContext.MenuItems
+            .AsNoTracking()
+            .FirstOrDefaultAsync(mi => mi.E2EId == "cms");
+        Assert.That(cmsMenuItem, Is.Not.Null);
+
+        var translationCountBefore = await DbContext.MenuItemTranslations
+            .AsNoTracking()
+            .CountAsync(t => t.MenuItemId == cmsMenuItem.Id);
+
+        var templateTranslationCountBefore = await DbContext.MenuTemplateTranslations
+            .AsNoTracking()
+            .CountAsync(t => t.MenuTemplateId == cmsMenuItem.MenuTemplateId);
+
+        // Act — run the idempotent SQL a second time (should not error or duplicate)
+        await DbContext.Database.ExecuteSqlRawAsync(@"
+        INSERT INTO MenuTemplates (Id, CreatedAt, CreatedByUserId, DefaultLink, E2EId, Name, UpdatedByUserId, Version)
+        SELECT 13, '0001-01-01', 0, '/cms', 'cms', 'CMS', 0, 0
+        WHERE NOT EXISTS (SELECT 1 FROM MenuTemplates WHERE Id = 13);
+
+        INSERT INTO MenuItems (Id, CreatedAt, CreatedByUserId, E2EId, IsInternalLink, Link, MenuTemplateId, Name, Position, Type, UpdatedByUserId, Version)
+        SELECT 13, '0001-01-01', 0, 'cms', 1, '/cms', 13, 'CMS', 9, 1, 0, 0
+        WHERE NOT EXISTS (SELECT 1 FROM MenuItems WHERE Id = 13);
+
+        UPDATE MenuItems SET ParentId = 3 WHERE Id = 13 AND EXISTS (SELECT 1 FROM (SELECT Id FROM MenuItems WHERE Id = 3) AS parent);
+
+        INSERT INTO MenuItemTranslations (CreatedAt, CreatedByUserId, Language, LocaleName, MenuItemId, Name, UpdatedByUserId, Version)
+        SELECT '0001-01-01', 0, 'English', 'en-US', 13, 'CMS', 0, 0
+        WHERE NOT EXISTS (SELECT 1 FROM MenuItemTranslations WHERE MenuItemId = 13 AND LocaleName = 'en-US');
+
+        INSERT INTO MenuItemTranslations (CreatedAt, CreatedByUserId, Language, LocaleName, MenuItemId, Name, UpdatedByUserId, Version)
+        SELECT '0001-01-01', 0, 'Danish', 'da', 13, 'CMS', 0, 0
+        WHERE NOT EXISTS (SELECT 1 FROM MenuItemTranslations WHERE MenuItemId = 13 AND LocaleName = 'da');
+
+        INSERT INTO MenuItemTranslations (CreatedAt, CreatedByUserId, Language, LocaleName, MenuItemId, Name, UpdatedByUserId, Version)
+        SELECT '0001-01-01', 0, 'German', 'de-DE', 13, 'CMS', 0, 0
+        WHERE NOT EXISTS (SELECT 1 FROM MenuItemTranslations WHERE MenuItemId = 13 AND LocaleName = 'de-DE');
+
+        INSERT INTO MenuItemTranslations (CreatedAt, CreatedByUserId, Language, LocaleName, MenuItemId, Name, UpdatedByUserId, Version)
+        SELECT '0001-01-01', 0, 'Ukrainian', 'uk-UA', 13, 'CMS', 0, 0
+        WHERE NOT EXISTS (SELECT 1 FROM MenuItemTranslations WHERE MenuItemId = 13 AND LocaleName = 'uk-UA');
+
+        INSERT INTO MenuTemplateTranslations (CreatedAt, Language, LocaleName, MenuTemplateId, Name)
+        SELECT '0001-01-01', 'English', 'en-US', 13, 'CMS'
+        WHERE NOT EXISTS (SELECT 1 FROM MenuTemplateTranslations WHERE MenuTemplateId = 13 AND LocaleName = 'en-US');
+
+        INSERT INTO MenuTemplateTranslations (CreatedAt, Language, LocaleName, MenuTemplateId, Name)
+        SELECT '0001-01-01', 'Danish', 'da', 13, 'CMS'
+        WHERE NOT EXISTS (SELECT 1 FROM MenuTemplateTranslations WHERE MenuTemplateId = 13 AND LocaleName = 'da');
+
+        INSERT INTO MenuTemplateTranslations (CreatedAt, Language, LocaleName, MenuTemplateId, Name)
+        SELECT '0001-01-01', 'German', 'de-DE', 13, 'CMS'
+        WHERE NOT EXISTS (SELECT 1 FROM MenuTemplateTranslations WHERE MenuTemplateId = 13 AND LocaleName = 'de-DE');
+    ");
+
+        // Assert — counts unchanged (no duplicates)
+        var translationCountAfter = await DbContext.MenuItemTranslations
+            .AsNoTracking()
+            .CountAsync(t => t.MenuItemId == cmsMenuItem.Id);
+
+        var templateTranslationCountAfter = await DbContext.MenuTemplateTranslations
+            .AsNoTracking()
+            .CountAsync(t => t.MenuTemplateId == cmsMenuItem.MenuTemplateId);
+
+        Assert.That(translationCountAfter, Is.EqualTo(translationCountBefore),
+            "Running migration SQL twice should not create duplicate MenuItemTranslations");
+        Assert.That(templateTranslationCountAfter, Is.EqualTo(templateTranslationCountBefore),
+            "Running migration SQL twice should not create duplicate MenuTemplateTranslations");
+    }
 }
