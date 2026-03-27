@@ -33,6 +33,46 @@ namespace Microting.EformAngularFrontendBase.Tests;
 [TestFixture]
 public class CmsMigrationIdempotencyTests : DbTestFixture
 {
+    private const string IdempotentCmsSeedSql = @"
+        INSERT INTO MenuTemplates (Id, CreatedAt, CreatedByUserId, DefaultLink, E2EId, Name, UpdatedByUserId, Version)
+        SELECT 13, '0001-01-01', 0, '/cms', 'cms', 'CMS', 0, 0
+        WHERE NOT EXISTS (SELECT 1 FROM MenuTemplates WHERE Id = 13);
+
+        INSERT INTO MenuItems (Id, CreatedAt, CreatedByUserId, E2EId, IsInternalLink, Link, MenuTemplateId, Name, Position, Type, UpdatedByUserId, Version)
+        SELECT 13, '0001-01-01', 0, 'cms', 1, '/cms', 13, 'CMS', 9, 1, 0, 0
+        WHERE NOT EXISTS (SELECT 1 FROM MenuItems WHERE Id = 13);
+
+        UPDATE MenuItems SET ParentId = 3 WHERE Id = 13 AND EXISTS (SELECT 1 FROM (SELECT Id FROM MenuItems WHERE Id = 3) AS parent);
+
+        INSERT INTO MenuItemTranslations (CreatedAt, CreatedByUserId, Language, LocaleName, MenuItemId, Name, UpdatedByUserId, Version)
+        SELECT '0001-01-01', 0, 'English', 'en-US', 13, 'CMS', 0, 0
+        WHERE NOT EXISTS (SELECT 1 FROM MenuItemTranslations WHERE MenuItemId = 13 AND LocaleName = 'en-US');
+
+        INSERT INTO MenuItemTranslations (CreatedAt, CreatedByUserId, Language, LocaleName, MenuItemId, Name, UpdatedByUserId, Version)
+        SELECT '0001-01-01', 0, 'Danish', 'da', 13, 'CMS', 0, 0
+        WHERE NOT EXISTS (SELECT 1 FROM MenuItemTranslations WHERE MenuItemId = 13 AND LocaleName = 'da');
+
+        INSERT INTO MenuItemTranslations (CreatedAt, CreatedByUserId, Language, LocaleName, MenuItemId, Name, UpdatedByUserId, Version)
+        SELECT '0001-01-01', 0, 'German', 'de-DE', 13, 'CMS', 0, 0
+        WHERE NOT EXISTS (SELECT 1 FROM MenuItemTranslations WHERE MenuItemId = 13 AND LocaleName = 'de-DE');
+
+        INSERT INTO MenuItemTranslations (CreatedAt, CreatedByUserId, Language, LocaleName, MenuItemId, Name, UpdatedByUserId, Version)
+        SELECT '0001-01-01', 0, 'Ukrainian', 'uk-UA', 13, 'CMS', 0, 0
+        WHERE NOT EXISTS (SELECT 1 FROM MenuItemTranslations WHERE MenuItemId = 13 AND LocaleName = 'uk-UA');
+
+        INSERT INTO MenuTemplateTranslations (CreatedAt, Language, LocaleName, MenuTemplateId, Name)
+        SELECT '0001-01-01', 'English', 'en-US', 13, 'CMS'
+        WHERE NOT EXISTS (SELECT 1 FROM MenuTemplateTranslations WHERE MenuTemplateId = 13 AND LocaleName = 'en-US');
+
+        INSERT INTO MenuTemplateTranslations (CreatedAt, Language, LocaleName, MenuTemplateId, Name)
+        SELECT '0001-01-01', 'Danish', 'da', 13, 'CMS'
+        WHERE NOT EXISTS (SELECT 1 FROM MenuTemplateTranslations WHERE MenuTemplateId = 13 AND LocaleName = 'da');
+
+        INSERT INTO MenuTemplateTranslations (CreatedAt, Language, LocaleName, MenuTemplateId, Name)
+        SELECT '0001-01-01', 'German', 'de-DE', 13, 'CMS'
+        WHERE NOT EXISTS (SELECT 1 FROM MenuTemplateTranslations WHERE MenuTemplateId = 13 AND LocaleName = 'de-DE');
+    ";
+
     [Test]
     public async Task Migration_CleanDatabase_CreatesCmsMenuItemWithTranslations()
     {
@@ -81,19 +121,27 @@ public class CmsMigrationIdempotencyTests : DbTestFixture
     [Test]
     public async Task Migration_ConflictingTranslationIds_StillCreatesCmsTranslations()
     {
-        // Arrange — simulate a database where IDs 51-54 in MenuItemTranslations
-        // are already taken by a different menu item (from plugin runtime seeding).
+        // Arrange — seed initial CMS data (simulating the initial clean migration run)
+        await DbContext.Database.ExecuteSqlRawAsync(IdempotentCmsSeedSql);
 
         var cmsMenuItem = await DbContext.MenuItems
             .AsNoTracking()
             .FirstOrDefaultAsync(mi => mi.E2EId == "cms");
-        Assert.That(cmsMenuItem, Is.Not.Null, "CMS MenuItem should exist from initial migration");
+        Assert.That(cmsMenuItem, Is.Not.Null, "CMS MenuItem should exist after initial seed");
 
         // Delete the CMS translations so we can test re-insertion
         await DbContext.Database.ExecuteSqlRawAsync(
             "DELETE FROM MenuItemTranslations WHERE MenuItemId = (SELECT Id FROM MenuItems WHERE E2EId = 'cms')");
         await DbContext.Database.ExecuteSqlRawAsync(
             "DELETE FROM MenuTemplateTranslations WHERE MenuTemplateId = (SELECT Id FROM MenuTemplates WHERE E2EId = 'cms')");
+
+        // Insert a dummy MenuTemplate and MenuItem so foreign keys are satisfied for conflicting rows
+        await DbContext.Database.ExecuteSqlRawAsync(@"
+        INSERT INTO MenuTemplates (Id, CreatedAt, CreatedByUserId, DefaultLink, E2EId, Name, UpdatedByUserId, Version)
+        VALUES (1, '2020-01-01', 0, '/fake', 'fake', 'FakePlugin', 0, 0);
+
+        INSERT INTO MenuItems (Id, CreatedAt, CreatedByUserId, E2EId, IsInternalLink, Link, MenuTemplateId, Name, Position, Type, UpdatedByUserId, Version)
+        VALUES (1, '2020-01-01', 0, 'fake', 1, '/fake', 1, 'FakePlugin', 1, 1, 0, 0);");
 
         // Insert conflicting rows at IDs 51-54 for a DIFFERENT menu item (Id=1)
         await DbContext.Database.ExecuteSqlRawAsync(@"
@@ -111,45 +159,7 @@ public class CmsMigrationIdempotencyTests : DbTestFixture
                (39, '2020-01-01', 'German', 'de-DE', 1, 'FakePlugin')");
 
         // Act — re-run the idempotent CMS seeding SQL
-        await DbContext.Database.ExecuteSqlRawAsync(@"
-        INSERT INTO MenuTemplates (Id, CreatedAt, CreatedByUserId, DefaultLink, E2EId, Name, UpdatedByUserId, Version)
-        SELECT 13, '0001-01-01', 0, '/cms', 'cms', 'CMS', 0, 0
-        WHERE NOT EXISTS (SELECT 1 FROM MenuTemplates WHERE Id = 13);
-
-        INSERT INTO MenuItems (Id, CreatedAt, CreatedByUserId, E2EId, IsInternalLink, Link, MenuTemplateId, Name, Position, Type, UpdatedByUserId, Version)
-        SELECT 13, '0001-01-01', 0, 'cms', 1, '/cms', 13, 'CMS', 9, 1, 0, 0
-        WHERE NOT EXISTS (SELECT 1 FROM MenuItems WHERE Id = 13);
-
-        UPDATE MenuItems SET ParentId = 3 WHERE Id = 13 AND EXISTS (SELECT 1 FROM (SELECT Id FROM MenuItems WHERE Id = 3) AS parent);
-
-        INSERT INTO MenuItemTranslations (CreatedAt, CreatedByUserId, Language, LocaleName, MenuItemId, Name, UpdatedByUserId, Version)
-        SELECT '0001-01-01', 0, 'English', 'en-US', 13, 'CMS', 0, 0
-        WHERE NOT EXISTS (SELECT 1 FROM MenuItemTranslations WHERE MenuItemId = 13 AND LocaleName = 'en-US');
-
-        INSERT INTO MenuItemTranslations (CreatedAt, CreatedByUserId, Language, LocaleName, MenuItemId, Name, UpdatedByUserId, Version)
-        SELECT '0001-01-01', 0, 'Danish', 'da', 13, 'CMS', 0, 0
-        WHERE NOT EXISTS (SELECT 1 FROM MenuItemTranslations WHERE MenuItemId = 13 AND LocaleName = 'da');
-
-        INSERT INTO MenuItemTranslations (CreatedAt, CreatedByUserId, Language, LocaleName, MenuItemId, Name, UpdatedByUserId, Version)
-        SELECT '0001-01-01', 0, 'German', 'de-DE', 13, 'CMS', 0, 0
-        WHERE NOT EXISTS (SELECT 1 FROM MenuItemTranslations WHERE MenuItemId = 13 AND LocaleName = 'de-DE');
-
-        INSERT INTO MenuItemTranslations (CreatedAt, CreatedByUserId, Language, LocaleName, MenuItemId, Name, UpdatedByUserId, Version)
-        SELECT '0001-01-01', 0, 'Ukrainian', 'uk-UA', 13, 'CMS', 0, 0
-        WHERE NOT EXISTS (SELECT 1 FROM MenuItemTranslations WHERE MenuItemId = 13 AND LocaleName = 'uk-UA');
-
-        INSERT INTO MenuTemplateTranslations (CreatedAt, Language, LocaleName, MenuTemplateId, Name)
-        SELECT '0001-01-01', 'English', 'en-US', 13, 'CMS'
-        WHERE NOT EXISTS (SELECT 1 FROM MenuTemplateTranslations WHERE MenuTemplateId = 13 AND LocaleName = 'en-US');
-
-        INSERT INTO MenuTemplateTranslations (CreatedAt, Language, LocaleName, MenuTemplateId, Name)
-        SELECT '0001-01-01', 'Danish', 'da', 13, 'CMS'
-        WHERE NOT EXISTS (SELECT 1 FROM MenuTemplateTranslations WHERE MenuTemplateId = 13 AND LocaleName = 'da');
-
-        INSERT INTO MenuTemplateTranslations (CreatedAt, Language, LocaleName, MenuTemplateId, Name)
-        SELECT '0001-01-01', 'German', 'de-DE', 13, 'CMS'
-        WHERE NOT EXISTS (SELECT 1 FROM MenuTemplateTranslations WHERE MenuTemplateId = 13 AND LocaleName = 'de-DE');
-    ");
+        await DbContext.Database.ExecuteSqlRawAsync(IdempotentCmsSeedSql);
 
         // Assert — CMS translations were created (with auto-increment IDs, NOT 51-54)
         var cmsTranslations = await DbContext.MenuItemTranslations
@@ -183,7 +193,9 @@ public class CmsMigrationIdempotencyTests : DbTestFixture
     [Test]
     public async Task Migration_RunTwice_DoesNotDuplicateOrError()
     {
-        // Arrange — migration already ran once in Setup()
+        // Arrange — seed initial CMS data (simulating the initial clean migration run)
+        await DbContext.Database.ExecuteSqlRawAsync(IdempotentCmsSeedSql);
+
         var cmsMenuItem = await DbContext.MenuItems
             .AsNoTracking()
             .FirstOrDefaultAsync(mi => mi.E2EId == "cms");
@@ -198,45 +210,7 @@ public class CmsMigrationIdempotencyTests : DbTestFixture
             .CountAsync(t => t.MenuTemplateId == cmsMenuItem.MenuTemplateId);
 
         // Act — run the idempotent SQL a second time (should not error or duplicate)
-        await DbContext.Database.ExecuteSqlRawAsync(@"
-        INSERT INTO MenuTemplates (Id, CreatedAt, CreatedByUserId, DefaultLink, E2EId, Name, UpdatedByUserId, Version)
-        SELECT 13, '0001-01-01', 0, '/cms', 'cms', 'CMS', 0, 0
-        WHERE NOT EXISTS (SELECT 1 FROM MenuTemplates WHERE Id = 13);
-
-        INSERT INTO MenuItems (Id, CreatedAt, CreatedByUserId, E2EId, IsInternalLink, Link, MenuTemplateId, Name, Position, Type, UpdatedByUserId, Version)
-        SELECT 13, '0001-01-01', 0, 'cms', 1, '/cms', 13, 'CMS', 9, 1, 0, 0
-        WHERE NOT EXISTS (SELECT 1 FROM MenuItems WHERE Id = 13);
-
-        UPDATE MenuItems SET ParentId = 3 WHERE Id = 13 AND EXISTS (SELECT 1 FROM (SELECT Id FROM MenuItems WHERE Id = 3) AS parent);
-
-        INSERT INTO MenuItemTranslations (CreatedAt, CreatedByUserId, Language, LocaleName, MenuItemId, Name, UpdatedByUserId, Version)
-        SELECT '0001-01-01', 0, 'English', 'en-US', 13, 'CMS', 0, 0
-        WHERE NOT EXISTS (SELECT 1 FROM MenuItemTranslations WHERE MenuItemId = 13 AND LocaleName = 'en-US');
-
-        INSERT INTO MenuItemTranslations (CreatedAt, CreatedByUserId, Language, LocaleName, MenuItemId, Name, UpdatedByUserId, Version)
-        SELECT '0001-01-01', 0, 'Danish', 'da', 13, 'CMS', 0, 0
-        WHERE NOT EXISTS (SELECT 1 FROM MenuItemTranslations WHERE MenuItemId = 13 AND LocaleName = 'da');
-
-        INSERT INTO MenuItemTranslations (CreatedAt, CreatedByUserId, Language, LocaleName, MenuItemId, Name, UpdatedByUserId, Version)
-        SELECT '0001-01-01', 0, 'German', 'de-DE', 13, 'CMS', 0, 0
-        WHERE NOT EXISTS (SELECT 1 FROM MenuItemTranslations WHERE MenuItemId = 13 AND LocaleName = 'de-DE');
-
-        INSERT INTO MenuItemTranslations (CreatedAt, CreatedByUserId, Language, LocaleName, MenuItemId, Name, UpdatedByUserId, Version)
-        SELECT '0001-01-01', 0, 'Ukrainian', 'uk-UA', 13, 'CMS', 0, 0
-        WHERE NOT EXISTS (SELECT 1 FROM MenuItemTranslations WHERE MenuItemId = 13 AND LocaleName = 'uk-UA');
-
-        INSERT INTO MenuTemplateTranslations (CreatedAt, Language, LocaleName, MenuTemplateId, Name)
-        SELECT '0001-01-01', 'English', 'en-US', 13, 'CMS'
-        WHERE NOT EXISTS (SELECT 1 FROM MenuTemplateTranslations WHERE MenuTemplateId = 13 AND LocaleName = 'en-US');
-
-        INSERT INTO MenuTemplateTranslations (CreatedAt, Language, LocaleName, MenuTemplateId, Name)
-        SELECT '0001-01-01', 'Danish', 'da', 13, 'CMS'
-        WHERE NOT EXISTS (SELECT 1 FROM MenuTemplateTranslations WHERE MenuTemplateId = 13 AND LocaleName = 'da');
-
-        INSERT INTO MenuTemplateTranslations (CreatedAt, Language, LocaleName, MenuTemplateId, Name)
-        SELECT '0001-01-01', 'German', 'de-DE', 13, 'CMS'
-        WHERE NOT EXISTS (SELECT 1 FROM MenuTemplateTranslations WHERE MenuTemplateId = 13 AND LocaleName = 'de-DE');
-    ");
+        await DbContext.Database.ExecuteSqlRawAsync(IdempotentCmsSeedSql);
 
         // Assert — counts unchanged (no duplicates)
         var translationCountAfter = await DbContext.MenuItemTranslations
