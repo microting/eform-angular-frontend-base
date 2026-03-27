@@ -1065,22 +1065,6 @@ namespace Microting.EformAngularFrontendBase.Migrations
                             Type = 1,
                             UpdatedByUserId = 0,
                             Version = 0
-                        },
-                        new
-                        {
-                            Id = 13,
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedByUserId = 0,
-                            E2EId = "cms",
-                            IsInternalLink = true,
-                            Link = "/cms",
-                            MenuTemplateId = 13,
-                            Name = "CMS",
-                            ParentId = 3,
-                            Position = 9,
-                            Type = 1,
-                            UpdatedByUserId = 0,
-                            Version = 0
                         });
                 });
 
@@ -1746,54 +1730,6 @@ namespace Microting.EformAngularFrontendBase.Migrations
                             Name = "Email одержувачі",
                             UpdatedByUserId = 0,
                             Version = 0
-                        },
-                        new
-                        {
-                            Id = 51,
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedByUserId = 0,
-                            Language = "English",
-                            LocaleName = "en-US",
-                            MenuItemId = 13,
-                            Name = "CMS",
-                            UpdatedByUserId = 0,
-                            Version = 0
-                        },
-                        new
-                        {
-                            Id = 52,
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedByUserId = 0,
-                            Language = "Danish",
-                            LocaleName = "da",
-                            MenuItemId = 13,
-                            Name = "CMS",
-                            UpdatedByUserId = 0,
-                            Version = 0
-                        },
-                        new
-                        {
-                            Id = 53,
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedByUserId = 0,
-                            Language = "German",
-                            LocaleName = "de-DE",
-                            MenuItemId = 13,
-                            Name = "CMS",
-                            UpdatedByUserId = 0,
-                            Version = 0
-                        },
-                        new
-                        {
-                            Id = 54,
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedByUserId = 0,
-                            Language = "Ukrainian",
-                            LocaleName = "uk-UA",
-                            MenuItemId = 13,
-                            Name = "CMS",
-                            UpdatedByUserId = 0,
-                            Version = 0
                         });
                 });
 
@@ -1972,17 +1908,6 @@ namespace Microting.EformAngularFrontendBase.Migrations
                             DefaultLink = "/email-recipients",
                             E2EId = "email-recipients",
                             Name = "Email recipients",
-                            UpdatedByUserId = 0,
-                            Version = 0
-                        },
-                        new
-                        {
-                            Id = 13,
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedByUserId = 0,
-                            DefaultLink = "/cms",
-                            E2EId = "cms",
-                            Name = "CMS",
                             UpdatedByUserId = 0,
                             Version = 0
                         });
@@ -2568,30 +2493,6 @@ namespace Microting.EformAngularFrontendBase.Migrations
                             LocaleName = "de-DE",
                             MenuTemplateId = 12,
                             Name = "E-Mail-Empfänger"
-                        },
-                        new
-                        {
-                            Id = 37,
-                            Language = "English",
-                            LocaleName = "en-US",
-                            MenuTemplateId = 13,
-                            Name = "CMS"
-                        },
-                        new
-                        {
-                            Id = 38,
-                            Language = "Danish",
-                            LocaleName = "da",
-                            MenuTemplateId = 13,
-                            Name = "CMS"
-                        },
-                        new
-                        {
-                            Id = 39,
-                            Language = "German",
-                            LocaleName = "de-DE",
-                            MenuTemplateId = 13,
-                            Name = "CMS"
                         });
                 });
 
