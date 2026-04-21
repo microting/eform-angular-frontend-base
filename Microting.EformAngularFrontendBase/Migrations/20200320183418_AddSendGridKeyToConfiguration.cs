@@ -7,7 +7,7 @@
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             // Setup for MySQL Provider
-            if (migrationBuilder.ActiveProvider == "Pomelo.EntityFrameworkCore.MySql")
+            if (migrationBuilder.ActiveProvider == "Microting.EntityFrameworkCore.MySql")
             {
                 DbConfig.IsMySQL = true;
             }
