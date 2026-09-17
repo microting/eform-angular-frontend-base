@@ -303,6 +303,14 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Data
                 .HasColumnType("tinyint(1)")
                 .HasDefaultValue(true);
 
+            // The default backfills existing rows as enabled, and it is also what makes
+            // true the sentinel for EformUser.IsActive — read the remarks on that property
+            // before changing either.
+            modelBuilder.Entity<EformUser>()
+                .Property(x => x.IsActive)
+                .HasColumnType("tinyint(1)")
+                .HasDefaultValue(true);
+
             modelBuilder.Entity<EformUser>()
                 .Property<string>("PreferredLoginProvider")
                 .HasMaxLength(50)
