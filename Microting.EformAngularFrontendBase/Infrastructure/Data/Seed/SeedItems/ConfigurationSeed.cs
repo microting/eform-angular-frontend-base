@@ -63,16 +63,6 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Data.Seed.SeedItems
             },
             new EformConfigurationValue
             {
-                Id = "ApplicationSettings:IsUserbackWidgetEnabled",
-                Value = "false"
-            },
-            new EformConfigurationValue
-            {
-                Id = "ApplicationSettings:UserbackToken",
-                Value = "33542|62605|dEaGb7GN0RoGEOMwEEWGh1pnh"
-            },
-            new EformConfigurationValue
-            {
                 Id = "EmailSettings:SmtpHost",
                 Value = ""
             },
