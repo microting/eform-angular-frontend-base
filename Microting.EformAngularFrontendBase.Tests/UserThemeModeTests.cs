@@ -23,6 +23,7 @@ SOFTWARE.
 */
 
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
@@ -41,6 +42,8 @@ namespace Microting.EformAngularFrontendBase.Tests;
 [TestFixture]
 public class UserThemeModeTests : DbTestFixture
 {
+    private const string MigrationAddThemeMode = "20261113120000_AddThemeModeToUser";
+    private const string MigrationBackfillThemeMode = "20261113130000_BackfillThemeModeFromDarkTheme";
     private const string MigrationBeforeThemeMode = "20260930102540_RemoveUserbackWidgetSettings";
 
     private static EformUser NewUser() => new()
@@ -118,6 +121,7 @@ public class UserThemeModeTests : DbTestFixture
         await migrator.MigrateAsync(MigrationBeforeThemeMode);
         await InsertLegacyUser(darkUser, true);
         await InsertLegacyUser(lightUser, false);
+        await migrator.MigrateAsync(MigrationAddThemeMode);
 
         // Act
         await migrator.MigrateAsync();
@@ -148,5 +152,33 @@ public class UserThemeModeTests : DbTestFixture
         var stored = await DbContext.Users.AsNoTracking().FirstAsync(x => x.Id == user.Id);
         Assert.That(stored.ThemeMode, Is.EqualTo("system"),
             "the column should be present with its default after a down/up round trip");
+    }
+
+    [Test]
+    public async Task Migration_AddColumnAndBackfill_AreSeparatelyRecorded()
+    {
+        var migrator = DbContext.GetService<IMigrator>();
+        var darkUser = Guid.NewGuid().ToString();
+
+        await migrator.MigrateAsync(MigrationBeforeThemeMode);
+        await InsertLegacyUser(darkUser, true);
+
+        await migrator.MigrateAsync(MigrationAddThemeMode);
+
+        // The column exists and every existing row reads the column default.
+        var afterAdd = await ReadUser(darkUser);
+        Assert.That(afterAdd.ThemeMode, Is.EqualTo("system"));
+
+        // Only the add-column migration is recorded, so a failed backfill cannot strand it.
+        var applied = (await DbContext.Database.GetAppliedMigrationsAsync()).ToList();
+        Assert.That(applied, Does.Contain(MigrationAddThemeMode));
+        Assert.That(applied, Does.Not.Contain(MigrationBackfillThemeMode));
+
+        await migrator.MigrateAsync();
+
+        var afterBackfill = await ReadUser(darkUser);
+        Assert.That(afterBackfill.ThemeMode, Is.EqualTo("dark"));
+        Assert.That(await DbContext.Database.GetAppliedMigrationsAsync(),
+            Does.Contain(MigrationBackfillThemeMode));
     }
 }

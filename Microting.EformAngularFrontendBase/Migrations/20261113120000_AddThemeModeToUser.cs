@@ -17,12 +17,6 @@ namespace Microting.EformAngularFrontendBase.Migrations
                 nullable: true,
                 defaultValue: "system")
                 .Annotation("MySql:CharSet", "utf8mb4");
-
-            // Every row that exists now was created under the DarkTheme checkbox, so it
-            // carries a deliberate choice. Preserve it: the default above would silently
-            // move the entire user base onto "follow system".
-            migrationBuilder.Sql(
-                "UPDATE Users SET ThemeMode = IF(DarkTheme = 1, 'dark', 'light');");
         }
 
         /// <inheritdoc />
