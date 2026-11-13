@@ -4111,6 +4111,11 @@ namespace Microting.EformAngularFrontendBase.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("longtext");
 
+                    b.Property<string>("ThemeMode")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("longtext")
+                        .HasDefaultValue("system");
+
                     b.Property<string>("ThemeVariant")
                         .HasColumnType("longtext");
 

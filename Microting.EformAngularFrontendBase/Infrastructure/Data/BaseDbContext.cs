@@ -311,6 +311,14 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Data
                 .HasColumnType("tinyint(1)")
                 .HasDefaultValue(true);
 
+            // The default is what new accounts get. Existing rows are backfilled from
+            // DarkTheme by the migration, not by this default -- a default alone would put
+            // every existing account on "system" and change what they see.
+            modelBuilder.Entity<EformUser>()
+                .Property(x => x.ThemeMode)
+                .HasColumnType("longtext")
+                .HasDefaultValue("system");
+
             modelBuilder.Entity<EformUser>()
                 .Property<string>("PreferredLoginProvider")
                 .HasMaxLength(50)
