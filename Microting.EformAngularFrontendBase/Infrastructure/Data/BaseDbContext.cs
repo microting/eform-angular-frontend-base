@@ -311,6 +311,17 @@ namespace Microting.EformAngularFrontendBase.Infrastructure.Data
                 .HasColumnType("tinyint(1)")
                 .HasDefaultValue(true);
 
+            // The store default is what fills EXISTING rows with 'system' when the column is
+            // added; the backfill migration keys on that marker (WHERE ThemeMode = 'system'),
+            // so removing it makes the backfill a silent no-op and leaves rows NULL. New rows
+            // get 'system' from the CLR initialiser, which EF writes explicitly. A default
+            // alone would leave the whole user base on "follow system", which is why the
+            // backfill from DarkTheme exists.
+            modelBuilder.Entity<EformUser>()
+                .Property(x => x.ThemeMode)
+                .HasColumnType("longtext")
+                .HasDefaultValue("system");
+
             modelBuilder.Entity<EformUser>()
                 .Property<string>("PreferredLoginProvider")
                 .HasMaxLength(50)
